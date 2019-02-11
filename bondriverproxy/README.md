@@ -2,7 +2,7 @@
 
 ## ベースDockerイメージ
 
-[keymetrics/pm2](https://hub.docker.com/r/keymetrics/pm2)
+[alpine](https://hub.docker.com/_/alpine)
 
 ## コンポーネント
 
