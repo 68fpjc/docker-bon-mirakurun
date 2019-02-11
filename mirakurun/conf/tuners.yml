@@ -4,7 +4,7 @@
     - CS
   command: /app/recbond --driver /app/client/BonDriver_Proxy-00.so B<channel> - -
   decoder: arib-b25-stream-test
-  isDisabled: false
+  isDisabled: true
 
 - name: PT-01
   types:
@@ -12,21 +12,21 @@
     - CS
   command: /app/recbond --driver /app/client/BonDriver_Proxy-01.so B<channel> - -
   decoder: arib-b25-stream-test
-  isDisabled: false
+  isDisabled: true
 
 - name: PT-02
   types:
     - GR
   command: /app/recbond --driver /app/client/BonDriver_Proxy-02.so B<channel> - -
   decoder: arib-b25-stream-test
-  isDisabled: false
+  isDisabled: true
 
 - name: PT-03
   types:
     - GR
   command: /app/recbond --driver /app/client/BonDriver_Proxy-03.so B<channel> - -
   decoder: arib-b25-stream-test
-  isDisabled: false
+  isDisabled: true
 
 - name: PT-04
   types:
