@@ -1,0 +1,43 @@
+version: '2'
+services:
+  bon:
+    build:
+      context: ./bondriverproxy
+    image: 68fpjc/bondriverproxy
+    ports:
+      - "1192:1192"
+    devices:
+      - /dev/px4video0:/dev/pt3video0
+      - /dev/px4video1:/dev/pt3video1
+      - /dev/px4video2:/dev/pt3video2
+      - /dev/px4video3:/dev/pt3video3
+      - /dev/px4video4:/dev/pt3video4
+      - /dev/px4video5:/dev/pt3video5
+      - /dev/px4video6:/dev/pt3video6
+      - /dev/px4video7:/dev/pt3video7
+    environment:
+      - BONDRIVERPROXY_USELNB=0,1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - bonconf:/app/client/
+  mirakurun:
+    build:
+      context: ./mirakurun
+    image: 68fpjc/mirakurun
+    depends_on:
+      - bon
+    cap_add:
+      - SYS_ADMIN
+      - SYS_NICE
+    environment:
+      - MIRAKURUN_WAITFOR=bon:1192
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - bonconf:/app/client/config.in/:ro
+      - ./mirakurun/conf:/usr/local/etc/mirakurun
+      - ./mirakurun/db:/usr/local/var/db/mirakurun
+      - /var/run/pcscd/pcscd.comm:/var/run/pcscd/pcscd.comm
+    ports:
+      - "40772:40772"
+volumes:
+  bonconf:
