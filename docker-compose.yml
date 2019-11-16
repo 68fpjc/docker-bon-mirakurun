@@ -10,7 +10,7 @@ services:
       context: ./pcscd
       args:
         DEBIAN_TAG: stretch-slim
-    image: 68fpjc/pcscd-stretch
+    image: 68fpjc/pcscd:stretch-slim
     privileged: true
     environment:
       TZ: Asia/Tokyo
