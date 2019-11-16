@@ -1,5 +1,4 @@
-ARG ME=someone
-FROM ${ME}/mirakc:latest
+FROM masnagam/mirakc:latest
 
 RUN : \
     && set -x \

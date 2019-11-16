@@ -29,12 +29,6 @@
     $ docker-compose -f docker-compose.bon-mirakc.yml build
     $ docker-compose -f docker-compose.bon-mirakc.yml up -d
 
-※ [docker-mirakc](https://github.com/masnagam/docker-mirakc) のDockerイメージをベースとして使用します。事前に下記手順でベースイメージを作成しておいてください。
-
-    $ git clone https://github.com/masnagam/docker-mirakc.git
-    $ cd docker-mirakc/
-    $ docker-compose build
-
 | コンテナ | アクセス方法 |
 | - | - |
 | mirakurun（Mirakurun） | `http://ホスト:40772/` |
