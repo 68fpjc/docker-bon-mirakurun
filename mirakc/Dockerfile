@@ -1,6 +1,5 @@
-FROM keymetrics/pm2:10-slim
-
-ENV DOCKER="YES"
+ARG ME=someone
+FROM ${ME}/mirakc:latest
 
 RUN : \
     && set -x \
@@ -28,14 +27,14 @@ RUN : \
     && rm -r /build/ \
     \
     # arib-b25-stream-test
-    && apt-get install -y --no-install-recommends make pkg-config g++ libpcsclite-dev \
+    && apt-get install -y --no-install-recommends npm make pkg-config g++ libpcsclite-dev \
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends nodejs make pkg-config g++ libpcsclite-dev \
     && npm install arib-b25-stream-test -g --unsafe-perm \
     && apt-get install -y --no-install-recommends libpcsclite1 \
     \
-    # Mirakurun
-    && npm install mirakurun -g --production \
-    \
-    && apt-get remove -y ca-certificates curl make g++ autoconf automake pkg-config libpcsclite-dev \
+    && apt-get remove -y ca-certificates curl make g++ autoconf automake npm pkg-config libpcsclite-dev \
     && apt-get autoremove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \

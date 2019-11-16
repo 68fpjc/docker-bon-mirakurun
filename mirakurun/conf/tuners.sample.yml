@@ -2,7 +2,7 @@
   types:
     - BS
     - CS
-  command: /app/recbond --driver /app/client/BonDriver_Proxy-00.so B<channel> - -
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-00.so B<channel> - -
   decoder: arib-b25-stream-test
   isDisabled: true
 
@@ -10,21 +10,21 @@
   types:
     - BS
     - CS
-  command: /app/recbond --driver /app/client/BonDriver_Proxy-01.so B<channel> - -
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-01.so B<channel> - -
   decoder: arib-b25-stream-test
   isDisabled: true
 
 - name: PT-02
   types:
     - GR
-  command: /app/recbond --driver /app/client/BonDriver_Proxy-02.so B<channel> - -
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-02.so B<channel> - -
   decoder: arib-b25-stream-test
   isDisabled: true
 
 - name: PT-03
   types:
     - GR
-  command: /app/recbond --driver /app/client/BonDriver_Proxy-03.so B<channel> - -
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-03.so B<channel> - -
   decoder: arib-b25-stream-test
   isDisabled: true
 
@@ -32,7 +32,7 @@
   types:
     - BS
     - CS
-  command: /app/recbond --driver /app/client/BonDriver_Proxy-04.so B<channel> - -
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-04.so B<channel> - -
   decoder: arib-b25-stream-test
   isDisabled: true
 
@@ -40,20 +40,20 @@
   types:
     - BS
     - CS
-  command: /app/recbond --driver /app/client/BonDriver_Proxy-05.so B<channel> - -
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-05.so B<channel> - -
   decoder: arib-b25-stream-test
   isDisabled: true
 
 - name: PT-06
   types:
     - GR
-  command: /app/recbond --driver /app/client/BonDriver_Proxy-06.so B<channel> - -
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-06.so B<channel> - -
   decoder: arib-b25-stream-test
   isDisabled: true
 
 - name: PT-07
   types:
     - GR
-  command: /app/recbond --driver /app/client/BonDriver_Proxy-07.so B<channel> - -
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-07.so B<channel> - -
   decoder: arib-b25-stream-test
   isDisabled: true

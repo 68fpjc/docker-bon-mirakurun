@@ -1,0 +1,332 @@
+server:
+  address: '0.0.0.0'
+  port: 40772
+  workers: 10
+
+channels:
+  # BS朝日
+  - name: ch-000
+    type: BS
+    channel: '0'
+
+  # BS-TBS
+  - name: ch-001
+    type: BS
+    channel: '1'
+
+  # WOWOWプライム
+  - name: ch-002
+    type: BS
+    channel: '2'
+
+  # BSジャパン
+  - name: ch-003
+    type: BS
+    channel: '3'
+
+  # WOWOWライブ
+  - name: ch-004
+    type: BS
+    channel: '4'
+
+  # WOWOWシネマ
+  - name: ch-005
+    type: BS
+    channel: '5'
+
+  # スターチャンネル2/3
+  - name: ch-006
+    type: BS
+    channel: '6'
+
+  # BSアニマックス
+  - name: ch-007
+    type: BS
+    channel: '7'
+
+  # ディズニーチャンネル
+  - name: ch-008
+    type: BS
+    channel: '8'
+
+  # BS11
+  - name: ch-009
+    type: BS
+    channel: '9'
+
+  # スターチャンネル
+  - name: ch-010
+    type: BS
+    channel: '10'
+
+  # TwellV
+  - name: ch-011
+    type: BS
+    channel: '11'
+
+  # FOX bs238
+  - name: ch-012
+    type: BS
+    channel: '12'
+
+  # BSスカパー！
+  - name: ch-013
+    type: BS
+    channel: '13'
+
+  # 放送大学BS1/2/3
+  - name: ch-014
+    type: BS
+    channel: '14'
+
+  # BS日テレ
+  - name: ch-015
+    type: BS
+    channel: '15'
+
+  # BSフジ
+  - name: ch-016
+    type: BS
+    channel: '16'
+
+  # NHK-BS1
+  - name: ch-017
+    type: BS
+    channel: '17'
+
+  # NHK-BSプレミアム
+  - name: ch-018
+    type: BS
+    channel: '18'
+
+  # 旧難視聴1
+  - name: ch-019
+    type: BS
+    channel: '19'
+
+  # 旧難視聴2
+  - name: ch-020
+    type: BS
+    channel: '20'
+
+  # グリーンチャンネル
+  - name: ch-021
+    type: BS
+    channel: '21'
+
+  # J Sports 1
+  - name: ch-022
+    type: BS
+    channel: '22'
+
+  # J Sports 2
+  - name: ch-023
+    type: BS
+    channel: '23'
+
+  # IMAGICA BS
+  - name: ch-024
+    type: BS
+    channel: '24'
+
+  # J Sports 3
+  - name: ch-025
+    type: BS
+    channel: '25'
+
+  # J Sports 4
+  - name: ch-026
+    type: BS
+    channel: '26'
+
+  # BS釣りビジョン
+  - name: ch-027
+    type: BS
+    channel: '27'
+
+  # BS日本映画専門チャンネル
+  - name: ch-028
+    type: BS
+    channel: '28'
+
+  # D-Life
+  - name: ch-029
+    type: BS
+    channel: '29'
+
+  # ND2
+  - name: ch-030
+    type: CS
+    channel: '30'
+
+  # ND4
+  - name: ch-031
+    type: CS
+    channel: '31'
+
+  # ND6
+  - name: ch-032
+    type: CS
+    channel: '32'
+
+  # ND8
+  - name: ch-033
+    type: CS
+    channel: '33'
+
+  # ND10
+  - name: ch-034
+    type: CS
+    channel: '34'
+
+  # ND12
+  - name: ch-035
+    type: CS
+    channel: '35'
+
+  # ND14
+  - name: ch-036
+    type: CS
+    channel: '36'
+
+  # ND16
+  - name: ch-037
+    type: CS
+    channel: '37'
+
+  # ND18
+  - name: ch-038
+    type: CS
+    channel: '38'
+
+  # ND20
+  - name: ch-039
+    type: CS
+    channel: '39'
+
+  # ND22
+  - name: ch-040
+    type: CS
+    channel: '40'
+
+  # ND24
+  - name: ch-041
+    type: CS
+    channel: '41'
+
+  # 16
+  - name: ch-066
+    type: GR
+    channel: '66'
+
+  # 21
+  - name: ch-071
+    type: GR
+    channel: '71'
+
+  # 22
+  - name: ch-072
+    type: GR
+    channel: '72'
+
+  # 23
+  - name: ch-073
+    type: GR
+    channel: '73'
+
+  # 24
+  - name: ch-074
+    type: GR
+    channel: '74'
+
+  # 25
+  - name: ch-075
+    type: GR
+    channel: '75'
+
+  # 26
+  - name: ch-076
+    type: GR
+    channel: '76'
+
+  # 27
+  - name: ch-077
+    type: GR
+    channel: '77'
+
+  # 30
+  - name: ch-080
+    type: GR
+    channel: '80'
+
+  # 32
+  - name: ch-082
+    type: GR
+    channel: '82'
+
+tuners:
+  - name: PT-00
+    types:
+      - BS
+      - CS
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-00.so B{{channel}} {{duration}} -
+    disabled: false
+
+  - name: PT-01
+    types:
+      - BS
+      - CS
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-01.so B{{channel}} {{duration}} -
+    disabled: false
+
+  - name: PT-02
+    types:
+      - GR
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-02.so B{{channel}} {{duration}} -
+    disabled: false
+
+  - name: PT-03
+    types:
+      - GR
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-03.so B{{channel}} {{duration}} -
+    disabled: false
+
+  - name: PT-04
+    types:
+      - BS
+      - CS
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-04.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-05
+    types:
+      - BS
+      - CS
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-05.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-06
+    types:
+      - GR
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-06.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-07
+    types:
+      - GR
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-07.so B{{channel}} {{duration}} -
+    disabled: true
+
+tools:
+  scan-services: >-
+    mirakc-arib scan-services{{#xsids}} --xsid={{.}}{{/xsids}}
+  collect-eits: >-
+    mirakc-arib collect-eits{{#xsids}} --xsid={{.}}{{/xsids}}
+  filter-service: >-
+    mirakc-arib filter-packets --sid={{sid}}
+  filter-program: >-
+    mirakc-arib filter-packets --sid={{sid}} --eid={{eid}}
+  postprocess: >-
+    arib-b25-stream-test
+
+epg-cache-dir: /var/lib/mirakc/epg

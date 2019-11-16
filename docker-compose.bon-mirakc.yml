@@ -9,8 +9,8 @@ services:
     build:
       context: ./pcscd
       args:
-        DEBIAN_TAG: stretch-slim
-    image: 68fpjc/pcscd-stretch
+        DEBIAN_TAG: buster-slim
+    image: 68fpjc/pcscd-buster
     privileged: true
     environment:
       TZ: Asia/Tokyo
@@ -22,21 +22,29 @@ services:
         max-size: '10m'
         max-file: '5'
 
-  mirakurun:
+  mirakc:
     build:
-      context: ./mirakurun
-    image: 68fpjc/mirakurun
+      context: ./mirakc
+      args:
+        ME: ${USER}
+    image: 68fpjc/mirakc
     depends_on:
       - bon
       - pcscd
-    cap_add:
-      - SYS_ADMIN
-      - SYS_NICE
     environment:
       TZ: Asia/Tokyo
+      # Log level of `mirakc`.
+      # See README.md in masnagam/mirakc.
+      RUST_LOG: info
+      # Output info-level log messages from child processes like
+      # `mirakc-arib collect-eits` for debugging purpose.
+      #
+      # Normally, you don't need to define the following environment variables.
+      MIRAKC_DEBUG_CHILD_PROCESS: ''
+      MIRAKC_ARIG_LOG: info
     volumes:
-      - ./mirakurun/conf/:/usr/local/etc/mirakurun/
-      - ./mirakurun/db/:/usr/local/var/db/mirakurun/
+      - ./mirakc/mirakc-config.yml:/etc/mirakc/config.yml:ro
+      - ./mirakc/epg/:/var/lib/mirakc/epg/
       - ./bonconf/:/var/lib/BonDriverProxy_Linux/config.in/:ro
     volumes_from:
       - pcscd

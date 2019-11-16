@@ -1,15 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-cd $(cd $(dirname $0); pwd)
-
-[ "${MIRAKURUN_WAITFOR}" ] && ./wait-for-it.sh -t 0 ${MIRAKURUN_WAITFOR}
-
-cd client/
-for BONCONF in config.in/*.conf ; do
+cd /var/lib/BonDriverProxy_Linux/
+for BONCONF in config.in/*.so.conf ; do
   cp ${BONCONF} .
   BONCLIENT=${BONCONF##*/}
   BONCLIENT=${BONCLIENT%.*}
-  cp ../BonDriver_Proxy.so ${BONCLIENT}
+  cp /usr/local/lib/BonDriver_Proxy.so ${BONCLIENT}
 done
 cd ..
 
