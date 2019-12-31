@@ -32,14 +32,17 @@ RUN : \
     && npm install arib-b25-stream-test -g --unsafe-perm \
     && apt-get install -y --no-install-recommends libpcsclite1 \
     \
-    # Mirakurun
-    && npm install mirakurun -g --production \
-    \
     && apt-get remove -y ca-certificates curl make g++ autoconf automake pkg-config libpcsclite-dev \
     && apt-get autoremove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    \
+    && :
+
+ARG MIRAKURUN_VER
+
+RUN : \
+    # Mirakurun
+    && npm install mirakurun@${MIRAKURUN_VER} -g --production \
     && :
 
 COPY services.sh /

@@ -25,7 +25,9 @@ services:
   mirakurun:
     build:
       context: ./mirakurun
-    image: 68fpjc/mirakurun
+      args:
+        - MIRAKURUN_VER=2.13.0
+    image: 68fpjc/mirakurun:2.13.0
     depends_on:
       - bon
       - pcscd
