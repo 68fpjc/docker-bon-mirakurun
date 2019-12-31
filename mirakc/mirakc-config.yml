@@ -319,13 +319,17 @@ tuners:
 
 tools:
   scan-services: >-
-    mirakc-arib scan-services{{#xsids}} --xsid={{.}}{{/xsids}}
+    mirakc-arib scan-services
+  sync-clock: >-
+    mirakc-arib sync-clock
   collect-eits: >-
-    mirakc-arib collect-eits{{#xsids}} --xsid={{.}}{{/xsids}}
+    mirakc-arib collect-eits
   filter-service: >-
-    mirakc-arib filter-packets --sid={{sid}}
+    mirakc-arib filter-service --sid={{sid}}
   filter-program: >-
-    mirakc-arib filter-packets --sid={{sid}} --eid={{eid}}
+    mirakc-arib filter-program --sid={{sid}} --eid={{eid}}
+    --clock-pcr={{clock_pcr}} --clock-time={{clock_time}}
+    --start-margin=5000 --end-margin=5000
   postprocess: >-
     arib-b25-stream-test
 
