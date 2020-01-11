@@ -21,6 +21,7 @@ services:
       options:
         max-size: '10m'
         max-file: '5'
+    restart: unless-stopped
 
   mirakurun:
     build:
@@ -49,3 +50,4 @@ services:
       options:
         max-size: '10m'
         max-file: '5'
+    restart: unless-stopped
