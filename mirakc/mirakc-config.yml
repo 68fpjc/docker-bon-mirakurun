@@ -104,11 +104,13 @@ channels:
   - name: ch-019
     type: BS
     channel: '19'
+    disabled: true
 
   # 旧難視聴2
   - name: ch-020
     type: BS
     channel: '20'
+    disabled: true
 
   # グリーンチャンネル
   - name: ch-021
@@ -264,6 +266,7 @@ channels:
   - name: ch-082
     type: GR
     channel: '82'
+    disabled: true
 
 tuners:
   - name: PT-00
