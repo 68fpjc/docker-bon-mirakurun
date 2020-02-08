@@ -1,7 +1,8 @@
+epg:
+  cache-dir: /var/lib/mirakc/epg
+
 server:
   address: '0.0.0.0'
-  port: 40772
-  workers: 10
 
 channels:
   # BS朝日
@@ -266,71 +267,45 @@ channels:
 
 tuners:
   - name: PT-00
-    types:
-      - BS
-      - CS
+    types: [BS, CS]
     command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-00.so B{{channel}} {{duration}} -
     disabled: false
 
   - name: PT-01
-    types:
-      - BS
-      - CS
+    types: [BS, CS]
     command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-01.so B{{channel}} {{duration}} -
     disabled: false
 
   - name: PT-02
-    types:
-      - GR
+    types: [GR]
     command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-02.so B{{channel}} {{duration}} -
     disabled: false
 
   - name: PT-03
-    types:
-      - GR
+    types: [GR]
     command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-03.so B{{channel}} {{duration}} -
     disabled: false
 
   - name: PT-04
-    types:
-      - BS
-      - CS
+    types: [BS, CS]
     command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-04.so B{{channel}} {{duration}} -
     disabled: true
 
   - name: PT-05
-    types:
-      - BS
-      - CS
+    types: [BS, CS]
     command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-05.so B{{channel}} {{duration}} -
     disabled: true
 
   - name: PT-06
-    types:
-      - GR
+    types: [GR]
     command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-06.so B{{channel}} {{duration}} -
     disabled: true
 
   - name: PT-07
-    types:
-      - GR
+    types: [GR]
     command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-07.so B{{channel}} {{duration}} -
     disabled: true
 
-tools:
-  scan-services: >-
-    mirakc-arib scan-services
-  sync-clock: >-
-    mirakc-arib sync-clock
-  collect-eits: >-
-    mirakc-arib collect-eits
-  filter-service: >-
-    mirakc-arib filter-service --sid={{sid}}
-  filter-program: >-
-    mirakc-arib filter-program --sid={{sid}} --eid={{eid}}
-    --clock-pcr={{clock_pcr}} --clock-time={{clock_time}}
-    --start-margin=5000 --end-margin=5000
-  postprocess: >-
+filters:
+  post-filter: >-
     arib-b25-stream-test
-
-epg-cache-dir: /var/lib/mirakc/epg

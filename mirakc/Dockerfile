@@ -1,4 +1,4 @@
-FROM masnagam/mirakc:latest
+FROM masnagam/mirakc:master
 
 RUN : \
     && set -x \

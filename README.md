@@ -43,8 +43,4 @@
             * `devices` の指定を `/dev/px4video0:/dev/pt3video0` → `/dev/pt3video0:/dev/pt3video0` のように書き換えれば、ひょっとしたら [PT3ドライバ](https://github.com/m-tsudo/pt3) でも動くかもしれません。動かないかもしれません。
 * `/dev/px4video0` と `/dev/px4video1` がBS・CSチューナであると仮定し、LNB電源をONにしています（ちゃんと動いているかどうかは未確認）。必要に応じて、[docker-compose.bon.yml](docker-compose.bon.yml) で定義されている環境変数 `BONDRIVERPROXY_USELNB` を変更・コメントアウトしてください。
 
-## TODO
-
-* mirakcを使った場合、リモートのTVTest + BonDriver_Mirakurunでの視聴がドロップしまくり
-
 以上
