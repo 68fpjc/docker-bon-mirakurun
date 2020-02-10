@@ -1,4 +1,4 @@
-FROM masnagam/mirakc:master
+FROM masnagam/mirakc:master-debian
 
 RUN : \
     && set -x \
