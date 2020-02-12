@@ -1,7 +1,4 @@
 FROM debian:stretch-slim
-
-WORKDIR /app/
-
 RUN : \
     && set -x \
     && apt-get update \
@@ -16,18 +13,17 @@ RUN : \
     && install -m 755 BonDriverProxy /usr/local/bin/ \
     && install -m 644 *.so BonDriver_LinuxPT.conf BonDriver_DVB.conf BonDriver_Splitter.conf /usr/local/lib/ \
     && mkdir -p /var/lib/BonDriverProxy_Linux/ \
-    && cd ../../ \
+    && cd / \
     && rm -r /build/ \
     \
+    # cleanup
     && apt-get remove -y ca-certificates curl make g++ autoconf automake pkg-config libpcsclite-dev \
     && apt-get autoremove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    \
+    && rm -rf /tmp/* \
     && :
-
-COPY services.sh /
-ENTRYPOINT ["/services.sh"]
+COPY entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
 CMD []
-
 EXPOSE 1192

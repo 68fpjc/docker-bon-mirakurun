@@ -1,9 +1,29 @@
-version: '2'
+version: '3.4'
 services:
   bon:
-    extends:
-      file: docker-compose.bon.yml
-      service: bon
+    build:
+      context: ./bon
+    image: 68fpjc/bondriverproxy
+    environment:
+      TZ: Asia/Tokyo
+      BONDRIVERPROXY_USELNB: 0,1
+    devices:
+      - /dev/px4video0:/dev/pt3video0
+      - /dev/px4video1:/dev/pt3video1
+      - /dev/px4video2:/dev/pt3video2
+      - /dev/px4video3:/dev/pt3video3
+      # - /dev/px4video4:/dev/pt3video4
+      # - /dev/px4video5:/dev/pt3video5
+      # - /dev/px4video6:/dev/pt3video6
+      # - /dev/px4video7:/dev/pt3video7
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '5'
+    ports:
+      - "1192:1192"
+    restart: unless-stopped
 
   pcscd:
     build:
@@ -15,7 +35,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - /var/run/pcscd/
+      - pcscd:/var/run/pcscd/
     logging:
       driver: json-file
       options:
@@ -26,6 +46,9 @@ services:
   mirakc:
     build:
       context: ./mirakc
+      target: mirakc
+      args:
+        - BASE=masnagam/mirakc:master-debian
     image: 68fpjc/mirakc
     depends_on:
       - bon
@@ -42,11 +65,10 @@ services:
       MIRAKC_DEBUG_CHILD_PROCESS: ''
       MIRAKC_ARIG_LOG: info
     volumes:
-      - ./mirakc/mirakc-config.yml:/etc/mirakc/config.yml:ro
+      - pcscd:/var/run/pcscd/
+      - ./mirakc/config.yml:/etc/mirakc/config.yml:ro
       - ./mirakc/epg/:/var/lib/mirakc/epg/
       - ./bonconf/:/var/lib/BonDriverProxy_Linux/config.in/:ro
-    volumes_from:
-      - pcscd
     ports:
       - "40772:40772"
     logging:
@@ -55,3 +77,6 @@ services:
         max-size: '10m'
         max-file: '5'
     restart: unless-stopped
+
+volumes:
+  pcscd:

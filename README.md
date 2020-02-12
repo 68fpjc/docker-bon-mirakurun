@@ -26,8 +26,8 @@
 
 ### Mirakurunの代わりに [mirakc](https://github.com/masnagam/mirakc) を使う場合
 
-    $ docker-compose -f docker-compose.bon-mirakc.yml build
-    $ docker-compose -f docker-compose.bon-mirakc.yml up -d
+    $ docker-compose -f docker-compose.mirakc.yml build
+    $ docker-compose -f docker-compose.mirakc.yml up -d
 
 | コンテナ | アクセス方法 |
 | - | - |
