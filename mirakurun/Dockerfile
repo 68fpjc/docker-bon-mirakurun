@@ -40,8 +40,8 @@ RUN : \
     && :
 
 # Mirakurun with arib-b25-stream-test
-ARG MIRAKURUN_VER
 FROM ${BASE} as mirakurun
+ARG MIRAKURUN_VER
 ENV DOCKER="YES"
 RUN : \
     && set -x \
