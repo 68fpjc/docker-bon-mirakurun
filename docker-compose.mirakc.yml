@@ -48,8 +48,8 @@ services:
       context: ./mirakc
       target: mirakc
       args:
-        - BASE=masnagam/mirakc:0.2.0-debian
-    image: 68fpjc/mirakc:0.2.0
+        - BASE=masnagam/mirakc:0.3.0-debian
+    image: 68fpjc/mirakc:0.3.0
     depends_on:
       - bon
       - pcscd
