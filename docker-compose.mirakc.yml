@@ -2,7 +2,7 @@ version: '3.4'
 services:
   bon:
     build:
-      context: ./bon
+      context: ./dockerfiles/bon
     image: 68fpjc/bondriverproxy
     environment:
       TZ: Asia/Tokyo
@@ -27,7 +27,7 @@ services:
 
   pcscd:
     build:
-      context: ./pcscd
+      context: ./dockerfiles/pcscd
       args:
         DEBIAN_TAG: buster-slim
     image: 68fpjc/pcscd:buster-slim
@@ -45,7 +45,7 @@ services:
 
   mirakc:
     build:
-      context: ./mirakc
+      context: ./dockerfiles/mirakc
       target: mirakc
       args:
         - BASE=masnagam/mirakc:0.3.0-debian
@@ -66,9 +66,9 @@ services:
       MIRAKC_ARIG_LOG: info
     volumes:
       - pcscd:/var/run/pcscd/
-      - ./mirakc/config.yml:/etc/mirakc/config.yml:ro
-      - ./mirakc/epg/:/var/lib/mirakc/epg/
-      - ./bonconf/:/var/lib/BonDriverProxy_Linux/config.in/:ro
+      - ./data/mirakc/config.yml:/etc/mirakc/config.yml:ro
+      - ./data/mirakc/epg/:/var/lib/mirakc/epg/
+      - ./data/bon/:/var/lib/BonDriverProxy_Linux/config.in/:ro
     ports:
       - "40772:40772"
     logging:

@@ -2,7 +2,7 @@ version: '3.4'
 services:
   bon:
     build:
-      context: ./bon
+      context: ./dockerfiles/bon
     image: 68fpjc/bondriverproxy
     environment:
       TZ: Asia/Tokyo
@@ -27,7 +27,7 @@ services:
 
   pcscd:
     build:
-      context: ./pcscd
+      context: ./dockerfiles/pcscd
       args:
         DEBIAN_TAG: stretch-slim
     image: 68fpjc/pcscd:stretch-slim
@@ -45,7 +45,7 @@ services:
 
   mirakurun:
     build:
-      context: ./mirakurun
+      context: ./dockerfiles/mirakurun
       target: mirakurun
       args:
         - BASE=keymetrics/pm2:10-slim
@@ -61,9 +61,9 @@ services:
       TZ: Asia/Tokyo
     volumes:
       - pcscd:/var/run/pcscd/
-      - ./mirakurun/conf/:/usr/local/etc/mirakurun/
-      - ./mirakurun/db/:/usr/local/var/db/mirakurun/
-      - ./bonconf/:/var/lib/BonDriverProxy_Linux/config.in/:ro
+      - ./data/mirakurun/conf/:/usr/local/etc/mirakurun/
+      - ./data/mirakurun/db/:/usr/local/var/db/mirakurun/
+      - ./data/bon/:/var/lib/BonDriverProxy_Linux/config.in/:ro
     ports:
       - "40772:40772"
     logging:
