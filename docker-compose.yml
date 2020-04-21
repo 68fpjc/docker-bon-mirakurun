@@ -49,8 +49,8 @@ services:
       target: mirakurun
       args:
         - BASE=keymetrics/pm2:10-slim
-        - MIRAKURUN_VER=2.14.0
-    image: 68fpjc/mirakurun:2.14.0
+        - MIRAKURUN_VER=2.15.0
+    image: 68fpjc/mirakurun:2.15.0
     depends_on:
       - bon
       - pcscd
