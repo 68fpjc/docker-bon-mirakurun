@@ -48,8 +48,8 @@ services:
       context: ./dockerfiles/mirakc
       target: mirakc
       args:
-        - BASE=masnagam/mirakc:0.7.0-debian
-    image: 68fpjc/mirakc:0.7.0
+        - BASE=masnagam/mirakc:0.8.0-debian
+    image: 68fpjc/mirakc:0.8.0
     depends_on:
       - bon
       - pcscd
