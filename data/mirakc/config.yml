@@ -80,6 +80,7 @@ channels:
   - name: ch-014
     type: BS
     channel: '14'
+    disabled: true
 
   # BS日テレ
   - name: ch-015
@@ -157,6 +158,7 @@ channels:
   - name: ch-029
     type: BS
     channel: '29'
+    disabled: true
 
   # ND2
   - name: ch-030
