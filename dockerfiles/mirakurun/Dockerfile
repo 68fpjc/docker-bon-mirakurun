@@ -39,26 +39,22 @@ RUN : \
     && rm -rf /tmp/* \
     && :
 
-# Mirakurun with arib-b25-stream-test
+# final image
 FROM ${BASE} as mirakurun
-ARG MIRAKURUN_VER
 ENV DOCKER="YES"
 RUN : \
     && set -x \
     && apt-get update \
     \
-    # Mirakurun
-    && npm install mirakurun@${MIRAKURUN_VER} -g --production \
+    # socat
+    && apt-get install -y --no-install-recommends socat \
     \
-    # arib-b25-stream-test
-    && apt-get install -y --no-install-recommends make pkg-config g++ libpcsclite-dev \
-    && npm install arib-b25-stream-test -g --unsafe-perm \
-    && apt-get install -y --no-install-recommends libpcsclite1 \
+    # disable pcscd
+    && apt-get remove -y pcscd \
     \
     # cleanup
-    && apt-get remove -y make pkg-config g++ libpcsclite-dev \
-    && apt-get autoremove -y \
     && apt-get clean \
+    && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* \
     && :
@@ -68,4 +64,4 @@ COPY --from=bon-build /dist/recbond /usr/local/bin/
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 CMD []
-EXPOSE 40772
+EXPOSE 40772 9229

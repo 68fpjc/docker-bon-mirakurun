@@ -23,24 +23,8 @@ services:
         max-file: '5'
     ports:
       - "1192:1192"
-    restart: unless-stopped
-
-  pcscd:
-    build:
-      context: ./dockerfiles/pcscd
-      args:
-        DEBIAN_TAG: buster-slim
-    image: 68fpjc/pcscd:buster-slim
-    privileged: true
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - pcscd:/var/run/pcscd/
-    logging:
-      driver: json-file
-      options:
-        max-size: '10m'
-        max-file: '5'
+    # networks:
+    #   - docker-b25_default
     restart: unless-stopped
 
   mirakc:
@@ -48,11 +32,10 @@ services:
       context: ./dockerfiles/mirakc
       target: mirakc
       args:
-        - BASE=masnagam/mirakc:0.12.0-debian
-    image: 68fpjc/mirakc:0.12.0
+        - BASE=masnagam/mirakc:master-debian
+    image: 68fpjc/mirakc:master
     depends_on:
       - bon
-      - pcscd
     environment:
       TZ: Asia/Tokyo
       # Log level of `mirakc`.
@@ -65,12 +48,13 @@ services:
       MIRAKC_DEBUG_CHILD_PROCESS: ''
       MIRAKC_ARIG_LOG: info
     volumes:
-      - pcscd:/var/run/pcscd/
       - ./data/mirakc/config.yml:/etc/mirakc/config.yml:ro
       - ./data/mirakc/epg/:/var/lib/mirakc/epg/
       - ./data/bon/:/var/lib/BonDriverProxy_Linux/config.in/:ro
     ports:
       - "40772:40772"
+    # networks:
+    #   - docker-b25_default
     logging:
       driver: json-file
       options:
@@ -78,5 +62,6 @@ services:
         max-file: '5'
     restart: unless-stopped
 
-volumes:
-  pcscd:
+# networks:
+#   docker-b25_default:
+#     external: true

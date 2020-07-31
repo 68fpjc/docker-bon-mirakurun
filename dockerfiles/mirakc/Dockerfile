@@ -39,25 +39,8 @@ RUN : \
     && rm -rf /tmp/* \
     && :
 
-# mirakc with arib-b25-stream-test
+# final image
 FROM ${BASE} as mirakc
-RUN : \
-    && set -x \
-    # && apt-get update \
-    \
-    # arib-b25-stream-test
-    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
-    && apt-get install -y --no-install-recommends nodejs make pkg-config g++ libpcsclite-dev \
-    && npm install arib-b25-stream-test -g --unsafe-perm \
-    && apt-get install -y --no-install-recommends libpcsclite1 \
-    \
-    # cleanup
-    && apt-get remove -y nodejs make pkg-config g++ libpcsclite-dev \
-    && apt-get autoremove -y \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /tmp/* \
-    && :
 COPY --from=bon-build /dist/BonDriver_Proxy.so /usr/local/lib/
 COPY --from=bon-build /dist/BonDriver_Proxy.so.conf /var/lib/BonDriverProxy_Linux/config.in/
 COPY --from=bon-build /dist/recbond /usr/local/bin/

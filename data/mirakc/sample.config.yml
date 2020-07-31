@@ -1,0 +1,933 @@
+epg:
+  cache-dir: /var/lib/mirakc/epg
+
+server:
+  addrs:
+    - http: '0.0.0.0:40772'
+
+channels:
+  # BS朝日
+  - name: ch-000
+    type: BS
+    channel: '0'
+
+  # BS-TBS
+  - name: ch-001
+    type: BS
+    channel: '1'
+
+  # WOWOWプライム
+  - name: ch-002
+    type: BS
+    channel: '2'
+
+  # BSテレ東
+  - name: ch-003
+    type: BS
+    channel: '3'
+
+  # WOWOWライブ
+  - name: ch-004
+    type: BS
+    channel: '4'
+
+  # WOWOWシネマ
+  - name: ch-005
+    type: BS
+    channel: '5'
+
+  # スターチャンネル2/3
+  - name: ch-006
+    type: BS
+    channel: '6'
+
+  # BSアニマックス
+  - name: ch-007
+    type: BS
+    channel: '7'
+
+  # ディズニーチャンネル
+  - name: ch-008
+    type: BS
+    channel: '8'
+
+  # BS11
+  - name: ch-009
+    type: BS
+    channel: '9'
+
+  # スターチャンネル
+  - name: ch-010
+    type: BS
+    channel: '10'
+
+  # BS12トゥエルビ
+  - name: ch-011
+    type: BS
+    channel: '11'
+
+  # BSスカパー！
+  - name: ch-012
+    type: BS
+    channel: '12'
+
+  # 放送大学
+  - name: ch-013
+    type: BS
+    channel: '13'
+
+  # 空き
+  - name: ch-014
+    type: BS
+    channel: '14'
+    disabled: true
+
+  # BS日テレ
+  - name: ch-015
+    type: BS
+    channel: '15'
+
+  # BSフジ
+  - name: ch-016
+    type: BS
+    channel: '16'
+
+  # NHK-BS1
+  - name: ch-017
+    type: BS
+    channel: '17'
+
+  # NHK-BSプレミアム
+  - name: ch-018
+    type: BS
+    channel: '18'
+
+  # グリーンチャンネル
+  - name: ch-021
+    type: BS
+    channel: '21'
+
+  # J Sports 1
+  - name: ch-022
+    type: BS
+    channel: '22'
+
+  # J Sports 2
+  - name: ch-023
+    type: BS
+    channel: '23'
+
+  # シネフィルWOWOW
+  - name: ch-024
+    type: BS
+    channel: '24'
+
+  # J Sports 3
+  - name: ch-025
+    type: BS
+    channel: '25'
+
+  # J Sports 4
+  - name: ch-026
+    type: BS
+    channel: '26'
+
+  # BS釣りビジョン
+  - name: ch-027
+    type: BS
+    channel: '27'
+
+  # BS日本映画専門チャンネル
+  - name: ch-028
+    type: BS
+    channel: '28'
+
+  # 空き
+  - name: ch-029
+    type: BS
+    channel: '29'
+    disabled: true
+
+  # ND2
+  - name: ch-030
+    type: CS
+    channel: '30'
+
+  # ND4
+  - name: ch-031
+    type: CS
+    channel: '31'
+
+  # ND6
+  - name: ch-032
+    type: CS
+    channel: '32'
+
+  # ND8
+  - name: ch-033
+    type: CS
+    channel: '33'
+
+  # ND10
+  - name: ch-034
+    type: CS
+    channel: '34'
+
+  # ND12
+  - name: ch-035
+    type: CS
+    channel: '35'
+
+  # ND14
+  - name: ch-036
+    type: CS
+    channel: '36'
+
+  # ND16
+  - name: ch-037
+    type: CS
+    channel: '37'
+
+  # ND18
+  - name: ch-038
+    type: CS
+    channel: '38'
+
+  # ND20
+  - name: ch-039
+    type: CS
+    channel: '39'
+
+  # ND22
+  - name: ch-040
+    type: CS
+    channel: '40'
+
+  # ND24
+  - name: ch-041
+    type: CS
+    channel: '41'
+
+  # 1
+  - name: ch-000
+    type: GR
+    channel: '0'
+    disabled: true
+
+  # 2
+  - name: ch-001
+    type: GR
+    channel: '1'
+    disabled: true
+
+  # 3
+  - name: ch-002
+    type: GR
+    channel: '2'
+    disabled: true
+
+  # C13
+  - name: ch-003
+    type: GR
+    channel: '3'
+    disabled: true
+
+  # C14
+  - name: ch-004
+    type: GR
+    channel: '4'
+    disabled: true
+
+  # C15
+  - name: ch-005
+    type: GR
+    channel: '5'
+    disabled: true
+
+  # C16
+  - name: ch-006
+    type: GR
+    channel: '6'
+    disabled: true
+
+  # C17
+  - name: ch-007
+    type: GR
+    channel: '7'
+    disabled: true
+
+  # C18
+  - name: ch-008
+    type: GR
+    channel: '8'
+    disabled: true
+
+  # C19
+  - name: ch-009
+    type: GR
+    channel: '9'
+    disabled: true
+
+  # C20
+  - name: ch-010
+    type: GR
+    channel: '10'
+    disabled: true
+
+  # C21
+  - name: ch-011
+    type: GR
+    channel: '11'
+    disabled: true
+
+  # C22
+  - name: ch-012
+    type: GR
+    channel: '12'
+    disabled: true
+
+  # 4
+  - name: ch-013
+    type: GR
+    channel: '13'
+    disabled: true
+
+  # 5
+  - name: ch-014
+    type: GR
+    channel: '14'
+    disabled: true
+
+  # 6
+  - name: ch-015
+    type: GR
+    channel: '15'
+    disabled: true
+
+  # 7
+  - name: ch-016
+    type: GR
+    channel: '16'
+    disabled: true
+
+  # 8
+  - name: ch-017
+    type: GR
+    channel: '17'
+    disabled: true
+
+  # 9
+  - name: ch-018
+    type: GR
+    channel: '18'
+    disabled: true
+
+  # 10
+  - name: ch-019
+    type: GR
+    channel: '19'
+    disabled: true
+
+  # 11
+  - name: ch-020
+    type: GR
+    channel: '20'
+    disabled: true
+
+  # 12
+  - name: ch-021
+    type: GR
+    channel: '21'
+    disabled: true
+
+  # C23
+  - name: ch-022
+    type: GR
+    channel: '22'
+    disabled: true
+
+  # C24
+  - name: ch-023
+    type: GR
+    channel: '23'
+    disabled: true
+
+  # C25
+  - name: ch-024
+    type: GR
+    channel: '24'
+    disabled: true
+
+  # C26
+  - name: ch-025
+    type: GR
+    channel: '25'
+    disabled: true
+
+  # C27
+  - name: ch-026
+    type: GR
+    channel: '26'
+    disabled: true
+
+  # C28
+  - name: ch-027
+    type: GR
+    channel: '27'
+    disabled: true
+
+  # C29
+  - name: ch-028
+    type: GR
+    channel: '28'
+    disabled: true
+
+  # C30
+  - name: ch-029
+    type: GR
+    channel: '29'
+    disabled: true
+
+  # C31
+  - name: ch-030
+    type: GR
+    channel: '30'
+    disabled: true
+
+  # C32
+  - name: ch-031
+    type: GR
+    channel: '31'
+    disabled: true
+
+  # C33
+  - name: ch-032
+    type: GR
+    channel: '32'
+    disabled: true
+
+  # C34
+  - name: ch-033
+    type: GR
+    channel: '33'
+    disabled: true
+
+  # C35
+  - name: ch-034
+    type: GR
+    channel: '34'
+    disabled: true
+
+  # C36
+  - name: ch-035
+    type: GR
+    channel: '35'
+    disabled: true
+
+  # C37
+  - name: ch-036
+    type: GR
+    channel: '36'
+    disabled: true
+
+  # C38
+  - name: ch-037
+    type: GR
+    channel: '37'
+    disabled: true
+
+  # C39
+  - name: ch-038
+    type: GR
+    channel: '38'
+    disabled: true
+
+  # C40
+  - name: ch-039
+    type: GR
+    channel: '39'
+    disabled: true
+
+  # C41
+  - name: ch-040
+    type: GR
+    channel: '40'
+    disabled: true
+
+  # C42
+  - name: ch-041
+    type: GR
+    channel: '41'
+    disabled: true
+
+  # C43
+  - name: ch-042
+    type: GR
+    channel: '42'
+    disabled: true
+
+  # C44
+  - name: ch-043
+    type: GR
+    channel: '43'
+    disabled: true
+
+  # C45
+  - name: ch-044
+    type: GR
+    channel: '44'
+    disabled: true
+
+  # C46
+  - name: ch-045
+    type: GR
+    channel: '45'
+    disabled: true
+
+  # C47
+  - name: ch-046
+    type: GR
+    channel: '46'
+    disabled: true
+
+  # C48
+  - name: ch-047
+    type: GR
+    channel: '47'
+    disabled: true
+
+  # C49
+  - name: ch-048
+    type: GR
+    channel: '48'
+    disabled: true
+
+  # C50
+  - name: ch-049
+    type: GR
+    channel: '49'
+    disabled: true
+
+  # C51
+  - name: ch-050
+    type: GR
+    channel: '50'
+    disabled: true
+
+  # C52
+  - name: ch-051
+    type: GR
+    channel: '51'
+    disabled: true
+
+  # C53
+  - name: ch-052
+    type: GR
+    channel: '52'
+    disabled: true
+
+  # C54
+  - name: ch-053
+    type: GR
+    channel: '53'
+    disabled: true
+
+  # C55
+  - name: ch-054
+    type: GR
+    channel: '54'
+    disabled: true
+
+  # C56
+  - name: ch-055
+    type: GR
+    channel: '55'
+    disabled: true
+
+  # C57
+  - name: ch-056
+    type: GR
+    channel: '56'
+    disabled: true
+
+  # C58
+  - name: ch-057
+    type: GR
+    channel: '57'
+    disabled: true
+
+  # C59
+  - name: ch-058
+    type: GR
+    channel: '58'
+    disabled: true
+
+  # C60
+  - name: ch-059
+    type: GR
+    channel: '59'
+    disabled: true
+
+  # C61
+  - name: ch-060
+    type: GR
+    channel: '60'
+    disabled: true
+
+  # C62
+  - name: ch-061
+    type: GR
+    channel: '61'
+    disabled: true
+
+  # C63
+  - name: ch-062
+    type: GR
+    channel: '62'
+    disabled: true
+
+  # 13
+  - name: ch-063
+    type: GR
+    channel: '63'
+    disabled: true
+
+  # 14
+  - name: ch-064
+    type: GR
+    channel: '64'
+    disabled: true
+
+  # 15
+  - name: ch-065
+    type: GR
+    channel: '65'
+    disabled: true
+
+  # 16 TOKYO MX
+  - name: ch-066
+    type: GR
+    channel: '66'
+    disabled: true
+
+  # 17
+  - name: ch-067
+    type: GR
+    channel: '67'
+    disabled: true
+
+  # 18
+  - name: ch-068
+    type: GR
+    channel: '68'
+    disabled: true
+
+  # 19
+  - name: ch-069
+    type: GR
+    channel: '69'
+    disabled: true
+
+  # 20
+  - name: ch-070
+    type: GR
+    channel: '70'
+    disabled: true
+
+  # 21 フジテレビ
+  - name: ch-071
+    type: GR
+    channel: '71'
+    disabled: true
+
+  # 22 TBS
+  - name: ch-072
+    type: GR
+    channel: '72'
+    disabled: true
+
+  # 23 テレビ東京
+  - name: ch-073
+    type: GR
+    channel: '73'
+    disabled: true
+
+  # 24 テレビ朝日
+  - name: ch-074
+    type: GR
+    channel: '74'
+    disabled: true
+
+  # 25 日テレ
+  - name: ch-075
+    type: GR
+    channel: '75'
+    disabled: true
+
+  # 26 Eテレ
+  - name: ch-076
+    type: GR
+    channel: '76'
+    disabled: true
+
+  # 27 NHK総合
+  - name: ch-077
+    type: GR
+    channel: '77'
+    disabled: true
+
+  # 28
+  - name: ch-078
+    type: GR
+    channel: '78'
+    disabled: true
+
+  # 29
+  - name: ch-079
+    type: GR
+    channel: '79'
+    disabled: true
+
+  # 30
+  - name: ch-080
+    type: GR
+    channel: '80'
+    disabled: true
+
+  # 31
+  - name: ch-081
+    type: GR
+    channel: '81'
+    disabled: true
+
+  # 32
+  - name: ch-082
+    type: GR
+    channel: '82'
+    disabled: true
+
+  # 33
+  - name: ch-083
+    type: GR
+    channel: '83'
+    disabled: true
+
+  # 34
+  - name: ch-084
+    type: GR
+    channel: '84'
+    disabled: true
+
+  # 35
+  - name: ch-085
+    type: GR
+    channel: '85'
+    disabled: true
+
+  # 36
+  - name: ch-086
+    type: GR
+    channel: '86'
+    disabled: true
+
+  # 37
+  - name: ch-087
+    type: GR
+    channel: '87'
+    disabled: true
+
+  # 38
+  - name: ch-088
+    type: GR
+    channel: '88'
+    disabled: true
+
+  # 39
+  - name: ch-089
+    type: GR
+    channel: '89'
+    disabled: true
+
+  # 40
+  - name: ch-090
+    type: GR
+    channel: '90'
+    disabled: true
+
+  # 41
+  - name: ch-091
+    type: GR
+    channel: '91'
+    disabled: true
+
+  # 42
+  - name: ch-092
+    type: GR
+    channel: '92'
+    disabled: true
+
+  # 43
+  - name: ch-093
+    type: GR
+    channel: '93'
+    disabled: true
+
+  # 44
+  - name: ch-094
+    type: GR
+    channel: '94'
+    disabled: true
+
+  # 45
+  - name: ch-095
+    type: GR
+    channel: '95'
+    disabled: true
+
+  # 46
+  - name: ch-096
+    type: GR
+    channel: '96'
+    disabled: true
+
+  # 47
+  - name: ch-097
+    type: GR
+    channel: '97'
+    disabled: true
+
+  # 48
+  - name: ch-098
+    type: GR
+    channel: '98'
+    disabled: true
+
+  # 49
+  - name: ch-099
+    type: GR
+    channel: '99'
+    disabled: true
+
+  # 50
+  - name: ch-100
+    type: GR
+    channel: '100'
+    disabled: true
+
+  # 51
+  - name: ch-101
+    type: GR
+    channel: '101'
+    disabled: true
+
+  # 52
+  - name: ch-102
+    type: GR
+    channel: '102'
+    disabled: true
+
+  # 53
+  - name: ch-103
+    type: GR
+    channel: '103'
+    disabled: true
+
+  # 54
+  - name: ch-104
+    type: GR
+    channel: '104'
+    disabled: true
+
+  # 55
+  - name: ch-105
+    type: GR
+    channel: '105'
+    disabled: true
+
+  # 56
+  - name: ch-106
+    type: GR
+    channel: '106'
+    disabled: true
+
+  # 57
+  - name: ch-107
+    type: GR
+    channel: '107'
+    disabled: true
+
+  # 58
+  - name: ch-108
+    type: GR
+    channel: '108'
+    disabled: true
+
+  # 59
+  - name: ch-109
+    type: GR
+    channel: '109'
+    disabled: true
+
+  # 60
+  - name: ch-110
+    type: GR
+    channel: '110'
+    disabled: true
+
+  # 61
+  - name: ch-111
+    type: GR
+    channel: '111'
+    disabled: true
+
+  # 62
+  - name: ch-112
+    type: GR
+    channel: '112'
+    disabled: true
+
+tuners:
+  - name: PT-00
+    types: [BS, CS]
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-00.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-01
+    types: [BS, CS]
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-01.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-02
+    types: [GR]
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-02.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-03
+    types: [GR]
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-03.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-04
+    types: [BS, CS]
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-04.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-05
+    types: [BS, CS]
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-05.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-06
+    types: [GR]
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-06.so B{{channel}} {{duration}} -
+    disabled: true
+
+  - name: PT-07
+    types: [GR]
+    command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-07.so B{{channel}} {{duration}} -
+    disabled: true
+
+filters:
+  decode-filter:
+    command: >-
+      socat - tcp-connect:<REMOTE-HOST>:<REMOTE-PORT>

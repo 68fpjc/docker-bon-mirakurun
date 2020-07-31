@@ -1,9 +1,10 @@
+# 下記はすべて無効化されています
 - name: PT-00
   types:
     - BS
     - CS
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-00.so B<channel> - -
-  decoder: arib-b25-stream-test
+  decoder: exec-socat
   isDisabled: true
 
 - name: PT-01
@@ -11,21 +12,21 @@
     - BS
     - CS
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-01.so B<channel> - -
-  decoder: arib-b25-stream-test
+  decoder: exec-socat
   isDisabled: true
 
 - name: PT-02
   types:
     - GR
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-02.so B<channel> - -
-  decoder: arib-b25-stream-test
+  decoder: exec-socat
   isDisabled: true
 
 - name: PT-03
   types:
     - GR
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-03.so B<channel> - -
-  decoder: arib-b25-stream-test
+  decoder: exec-socat
   isDisabled: true
 
 - name: PT-04
@@ -33,7 +34,7 @@
     - BS
     - CS
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-04.so B<channel> - -
-  decoder: arib-b25-stream-test
+  decoder: exec-socat
   isDisabled: true
 
 - name: PT-05
@@ -41,19 +42,19 @@
     - BS
     - CS
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-05.so B<channel> - -
-  decoder: arib-b25-stream-test
+  decoder: exec-socat
   isDisabled: true
 
 - name: PT-06
   types:
     - GR
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-06.so B<channel> - -
-  decoder: arib-b25-stream-test
+  decoder: exec-socat
   isDisabled: true
 
 - name: PT-07
   types:
     - GR
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-07.so B<channel> - -
-  decoder: arib-b25-stream-test
+  decoder: exec-socat
   isDisabled: true

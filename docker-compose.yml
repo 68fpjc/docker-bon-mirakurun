@@ -25,53 +25,33 @@ services:
       - "1192:1192"
     restart: unless-stopped
 
-  pcscd:
-    build:
-      context: ./dockerfiles/pcscd
-      args:
-        DEBIAN_TAG: stretch-slim
-    image: 68fpjc/pcscd:stretch-slim
-    privileged: true
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - pcscd:/var/run/pcscd/
-    logging:
-      driver: json-file
-      options:
-        max-size: '10m'
-        max-file: '5'
-    restart: unless-stopped
-
   mirakurun:
     build:
       context: ./dockerfiles/mirakurun
       target: mirakurun
       args:
-        - BASE=keymetrics/pm2:10-slim
-        - MIRAKURUN_VER=2.15.0
-    image: 68fpjc/mirakurun:2.15.0
+        - BASE=chinachu/mirakurun:latest
+    image: 68fpjc/mirakurun:latest
     depends_on:
       - bon
-      - pcscd
     cap_add:
       - SYS_ADMIN
       - SYS_NICE
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - pcscd:/var/run/pcscd/
-      - ./data/mirakurun/conf/:/usr/local/etc/mirakurun/
-      - ./data/mirakurun/db/:/usr/local/var/db/mirakurun/
+      - ./data/mirakurun/opt/:/opt/
+      - ./data/mirakurun/config/:/app-config/
+      - ./data/mirakurun/data/:/app-data/
       - ./data/bon/:/var/lib/BonDriverProxy_Linux/config.in/:ro
+      - ./data/mirakurun/config/sample.tuners.yml:/app/config/tuners.yml:ro
+      - ./data/mirakurun/config/sample.channels.yml:/app/config/channels.yml:ro
     ports:
       - "40772:40772"
+      - "9229:9229"
     logging:
       driver: json-file
       options:
         max-size: '10m'
         max-file: '5'
     restart: unless-stopped
-
-volumes:
-  pcscd:

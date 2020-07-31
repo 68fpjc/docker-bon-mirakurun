@@ -1,9 +1,8 @@
-# cat BonDriver_LinuxPT.conf | awk 'BEGIN{FS = "\t";type = ""} /^#ISDB_S/{type = "BS";next} /^; CS110/{type = "CS";next} /^#ISDB_T/{type = "GR";next} /^(;|$)/{next} {if(type!=""){printf "# %s\n- name: ch-%03d\n  type: %s\n  channel: \x27%s\x27\n\n",$1,$2,type,$2}}'
+# cat BonDriver_LinuxPT.conf | awk 'BEGIN{FS="\t";type=""} /^#ISDB_S/{type = "BS";next} /^; CS110/{type="CS";next} /^#ISDB_T/{type="GR";next} /^(;|$)/{next} {if(type!=""){footer="";if(type=="GR"){footer="  isDisabled: true\n"};printf "# %s\n- name: ch-%03d\n  type: %s\n  channel: \x27%s\x27\n%s\n",$1,$2,type,$2,footer}}'
 #
 # Mirakurunチャンネル定義ファイルのサンプルです（BonDriverProxy_Linux + recbond用）。
-# 地デジ（type: GR）については、必要なものを残して削除してください。
-# BonDriver_LinuxPT.confのチャンネル定義がすべて出力されているため、このまま使うのは非常に非効率です。
 #
+# 地デジ（type: GR）については必要なものを有効化し、残りは削除してください。
 # TVTestをBonDriverProxy_Linuxに接続して地デジのチャンネルスキャンをすれば、どれを残してどれを削除すべきかわかると思います。たぶん。
 
 # BS朝日
@@ -21,7 +20,7 @@
   type: BS
   channel: '2'
 
-# BSジャパン
+# BSテレ東
 - name: ch-003
   type: BS
   channel: '3'
@@ -61,25 +60,26 @@
   type: BS
   channel: '10'
 
-# TwellV
+# BS12トゥエルビ
 - name: ch-011
   type: BS
   channel: '11'
 
-# FOX bs238
+# BSスカパー！
 - name: ch-012
   type: BS
   channel: '12'
 
-# BSスカパー！
+# 放送大学
 - name: ch-013
   type: BS
   channel: '13'
 
-# 放送大学BS1/2/3
+# 空き
 - name: ch-014
   type: BS
   channel: '14'
+  isDisabled: true
 
 # BS日テレ
 - name: ch-015
@@ -101,16 +101,6 @@
   type: BS
   channel: '18'
 
-# 旧難視聴1
-- name: ch-019
-  type: BS
-  channel: '19'
-
-# 旧難視聴2
-- name: ch-020
-  type: BS
-  channel: '20'
-
 # グリーンチャンネル
 - name: ch-021
   type: BS
@@ -126,7 +116,7 @@
   type: BS
   channel: '23'
 
-# IMAGICA BS
+# シネフィルWOWOW
 - name: ch-024
   type: BS
   channel: '24'
@@ -151,10 +141,11 @@
   type: BS
   channel: '28'
 
-# D-Life
+# 空き
 - name: ch-029
   type: BS
   channel: '29'
+  isDisabled: true
 
 # ND2
 - name: ch-030
@@ -220,563 +211,676 @@
 - name: ch-000
   type: GR
   channel: '0'
+  isDisabled: true
 
 # 2
 - name: ch-001
   type: GR
   channel: '1'
+  isDisabled: true
 
 # 3
 - name: ch-002
   type: GR
   channel: '2'
+  isDisabled: true
 
 # C13
 - name: ch-003
   type: GR
   channel: '3'
+  isDisabled: true
 
 # C14
 - name: ch-004
   type: GR
   channel: '4'
+  isDisabled: true
 
 # C15
 - name: ch-005
   type: GR
   channel: '5'
+  isDisabled: true
 
 # C16
 - name: ch-006
   type: GR
   channel: '6'
+  isDisabled: true
 
 # C17
 - name: ch-007
   type: GR
   channel: '7'
+  isDisabled: true
 
 # C18
 - name: ch-008
   type: GR
   channel: '8'
+  isDisabled: true
 
 # C19
 - name: ch-009
   type: GR
   channel: '9'
+  isDisabled: true
 
 # C20
 - name: ch-010
   type: GR
   channel: '10'
+  isDisabled: true
 
 # C21
 - name: ch-011
   type: GR
   channel: '11'
+  isDisabled: true
 
 # C22
 - name: ch-012
   type: GR
   channel: '12'
+  isDisabled: true
 
 # 4
 - name: ch-013
   type: GR
   channel: '13'
+  isDisabled: true
 
 # 5
 - name: ch-014
   type: GR
   channel: '14'
+  isDisabled: true
 
 # 6
 - name: ch-015
   type: GR
   channel: '15'
+  isDisabled: true
 
 # 7
 - name: ch-016
   type: GR
   channel: '16'
+  isDisabled: true
 
 # 8
 - name: ch-017
   type: GR
   channel: '17'
+  isDisabled: true
 
 # 9
 - name: ch-018
   type: GR
   channel: '18'
+  isDisabled: true
 
 # 10
 - name: ch-019
   type: GR
   channel: '19'
+  isDisabled: true
 
 # 11
 - name: ch-020
   type: GR
   channel: '20'
+  isDisabled: true
 
 # 12
 - name: ch-021
   type: GR
   channel: '21'
+  isDisabled: true
 
 # C23
 - name: ch-022
   type: GR
   channel: '22'
+  isDisabled: true
 
 # C24
 - name: ch-023
   type: GR
   channel: '23'
+  isDisabled: true
 
 # C25
 - name: ch-024
   type: GR
   channel: '24'
+  isDisabled: true
 
 # C26
 - name: ch-025
   type: GR
   channel: '25'
+  isDisabled: true
 
 # C27
 - name: ch-026
   type: GR
   channel: '26'
+  isDisabled: true
 
 # C28
 - name: ch-027
   type: GR
   channel: '27'
+  isDisabled: true
 
 # C29
 - name: ch-028
   type: GR
   channel: '28'
+  isDisabled: true
 
 # C30
 - name: ch-029
   type: GR
   channel: '29'
+  isDisabled: true
 
 # C31
 - name: ch-030
   type: GR
   channel: '30'
+  isDisabled: true
 
 # C32
 - name: ch-031
   type: GR
   channel: '31'
+  isDisabled: true
 
 # C33
 - name: ch-032
   type: GR
   channel: '32'
+  isDisabled: true
 
 # C34
 - name: ch-033
   type: GR
   channel: '33'
+  isDisabled: true
 
 # C35
 - name: ch-034
   type: GR
   channel: '34'
+  isDisabled: true
 
 # C36
 - name: ch-035
   type: GR
   channel: '35'
+  isDisabled: true
 
 # C37
 - name: ch-036
   type: GR
   channel: '36'
+  isDisabled: true
 
 # C38
 - name: ch-037
   type: GR
   channel: '37'
+  isDisabled: true
 
 # C39
 - name: ch-038
   type: GR
   channel: '38'
+  isDisabled: true
 
 # C40
 - name: ch-039
   type: GR
   channel: '39'
+  isDisabled: true
 
 # C41
 - name: ch-040
   type: GR
   channel: '40'
+  isDisabled: true
 
 # C42
 - name: ch-041
   type: GR
   channel: '41'
+  isDisabled: true
 
 # C43
 - name: ch-042
   type: GR
   channel: '42'
+  isDisabled: true
 
 # C44
 - name: ch-043
   type: GR
   channel: '43'
+  isDisabled: true
 
 # C45
 - name: ch-044
   type: GR
   channel: '44'
+  isDisabled: true
 
 # C46
 - name: ch-045
   type: GR
   channel: '45'
+  isDisabled: true
 
 # C47
 - name: ch-046
   type: GR
   channel: '46'
+  isDisabled: true
 
 # C48
 - name: ch-047
   type: GR
   channel: '47'
+  isDisabled: true
 
 # C49
 - name: ch-048
   type: GR
   channel: '48'
+  isDisabled: true
 
 # C50
 - name: ch-049
   type: GR
   channel: '49'
+  isDisabled: true
 
 # C51
 - name: ch-050
   type: GR
   channel: '50'
+  isDisabled: true
 
 # C52
 - name: ch-051
   type: GR
   channel: '51'
+  isDisabled: true
 
 # C53
 - name: ch-052
   type: GR
   channel: '52'
+  isDisabled: true
 
 # C54
 - name: ch-053
   type: GR
   channel: '53'
+  isDisabled: true
 
 # C55
 - name: ch-054
   type: GR
   channel: '54'
+  isDisabled: true
 
 # C56
 - name: ch-055
   type: GR
   channel: '55'
+  isDisabled: true
 
 # C57
 - name: ch-056
   type: GR
   channel: '56'
+  isDisabled: true
 
 # C58
 - name: ch-057
   type: GR
   channel: '57'
+  isDisabled: true
 
 # C59
 - name: ch-058
   type: GR
   channel: '58'
+  isDisabled: true
 
 # C60
 - name: ch-059
   type: GR
   channel: '59'
+  isDisabled: true
 
 # C61
 - name: ch-060
   type: GR
   channel: '60'
+  isDisabled: true
 
 # C62
 - name: ch-061
   type: GR
   channel: '61'
+  isDisabled: true
 
 # C63
 - name: ch-062
   type: GR
   channel: '62'
+  isDisabled: true
 
 # 13
 - name: ch-063
   type: GR
   channel: '63'
+  isDisabled: true
 
 # 14
 - name: ch-064
   type: GR
   channel: '64'
+  isDisabled: true
 
 # 15
 - name: ch-065
   type: GR
   channel: '65'
+  isDisabled: true
 
-# 16
+# 16 TOKYO MX
 - name: ch-066
   type: GR
   channel: '66'
+  isDisabled: true
 
 # 17
 - name: ch-067
   type: GR
   channel: '67'
+  isDisabled: true
 
 # 18
 - name: ch-068
   type: GR
   channel: '68'
+  isDisabled: true
 
 # 19
 - name: ch-069
   type: GR
   channel: '69'
+  isDisabled: true
 
 # 20
 - name: ch-070
   type: GR
   channel: '70'
+  isDisabled: true
 
-# 21
+# 21 フジテレビ
 - name: ch-071
   type: GR
   channel: '71'
+  isDisabled: true
 
-# 22
+# 22 TBS
 - name: ch-072
   type: GR
   channel: '72'
+  isDisabled: true
 
-# 23
+# 23 テレビ東京
 - name: ch-073
   type: GR
   channel: '73'
+  isDisabled: true
 
-# 24
+# 24 テレビ朝日
 - name: ch-074
   type: GR
   channel: '74'
+  isDisabled: true
 
-# 25
+# 25 日テレ
 - name: ch-075
   type: GR
   channel: '75'
+  isDisabled: true
 
-# 26
+# 26 Eテレ
 - name: ch-076
   type: GR
   channel: '76'
+  isDisabled: true
 
-# 27
+# 27 NHK総合
 - name: ch-077
   type: GR
   channel: '77'
+  isDisabled: true
 
 # 28
 - name: ch-078
   type: GR
   channel: '78'
+  isDisabled: true
 
 # 29
 - name: ch-079
   type: GR
   channel: '79'
+  isDisabled: true
 
 # 30
 - name: ch-080
   type: GR
   channel: '80'
+  isDisabled: true
 
 # 31
 - name: ch-081
   type: GR
   channel: '81'
+  isDisabled: true
 
 # 32
 - name: ch-082
   type: GR
   channel: '82'
+  isDisabled: true
 
 # 33
 - name: ch-083
   type: GR
   channel: '83'
+  isDisabled: true
 
 # 34
 - name: ch-084
   type: GR
   channel: '84'
+  isDisabled: true
 
 # 35
 - name: ch-085
   type: GR
   channel: '85'
+  isDisabled: true
 
 # 36
 - name: ch-086
   type: GR
   channel: '86'
+  isDisabled: true
 
 # 37
 - name: ch-087
   type: GR
   channel: '87'
+  isDisabled: true
 
 # 38
 - name: ch-088
   type: GR
   channel: '88'
+  isDisabled: true
 
 # 39
 - name: ch-089
   type: GR
   channel: '89'
+  isDisabled: true
 
 # 40
 - name: ch-090
   type: GR
   channel: '90'
+  isDisabled: true
 
 # 41
 - name: ch-091
   type: GR
   channel: '91'
+  isDisabled: true
 
 # 42
 - name: ch-092
   type: GR
   channel: '92'
+  isDisabled: true
 
 # 43
 - name: ch-093
   type: GR
   channel: '93'
+  isDisabled: true
 
 # 44
 - name: ch-094
   type: GR
   channel: '94'
+  isDisabled: true
 
 # 45
 - name: ch-095
   type: GR
   channel: '95'
+  isDisabled: true
 
 # 46
 - name: ch-096
   type: GR
   channel: '96'
+  isDisabled: true
 
 # 47
 - name: ch-097
   type: GR
   channel: '97'
+  isDisabled: true
 
 # 48
 - name: ch-098
   type: GR
   channel: '98'
+  isDisabled: true
 
 # 49
 - name: ch-099
   type: GR
   channel: '99'
+  isDisabled: true
 
 # 50
 - name: ch-100
   type: GR
   channel: '100'
+  isDisabled: true
 
 # 51
 - name: ch-101
   type: GR
   channel: '101'
+  isDisabled: true
 
 # 52
 - name: ch-102
   type: GR
   channel: '102'
+  isDisabled: true
 
 # 53
 - name: ch-103
   type: GR
   channel: '103'
+  isDisabled: true
 
 # 54
 - name: ch-104
   type: GR
   channel: '104'
+  isDisabled: true
 
 # 55
 - name: ch-105
   type: GR
   channel: '105'
+  isDisabled: true
 
 # 56
 - name: ch-106
   type: GR
   channel: '106'
+  isDisabled: true
 
 # 57
 - name: ch-107
   type: GR
   channel: '107'
+  isDisabled: true
 
 # 58
 - name: ch-108
   type: GR
   channel: '108'
+  isDisabled: true
 
 # 59
 - name: ch-109
   type: GR
   channel: '109'
+  isDisabled: true
 
 # 60
 - name: ch-110
   type: GR
   channel: '110'
+  isDisabled: true
 
 # 61
 - name: ch-111
   type: GR
   channel: '111'
+  isDisabled: true
 
 # 62
 - name: ch-112
   type: GR
   channel: '112'
+  isDisabled: true
