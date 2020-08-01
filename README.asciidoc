@@ -1,0 +1,88 @@
+= docker-bon-mirakurun
+
+https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux[BonDriverProxy_Linux] + https://github.com/dogeel/recbond[recbond] + https://github.com/Chinachu/Mirakurun[Mirakurun] （or https://github.com/masnagam/mirakc[mirakc] ）のDockerイメージです。TVチューナは http://www.plex-net.co.jp/product/px-q3u4/[PLEX PX-Q3U4] を想定しています。
+
+録画・視聴アプリは含まれていません。EPGStation、TVTest、EDCB等、お好きなものをどうぞ。
+
+== 動作環境
+
+下記で動作確認しています。
+
+* Ubuntu 18.04.1 LTS
+* Docker version 19.03.6, build 369ce74a3c
+* docker-compose version 1.24.1, build 4667896b
+
+== 使い方
+
+=== 通常
+
+[source,sh]
+----
+$ docker-compose build
+$ docker-compose up -d
+----
+
+下記ファイルが自動生成されるので、利用環境に合わせて編集
+
+* `data/mirakurun/config/server.yml`
+* `data/mirakurun/config/tuners.yml`
+* `data/mirakurun/config/channels.yml`
+* `data/mirakurun/opt/exec-socat`
+
+編集後、コンテナを再起動
+
+[source,sh]
+----
+$ docker-compose restart
+----
+
+=== Mirakurunの代わりにmirakcを使う場合
+
+[source,sh]
+----
+$ docker-compose -f docker-compose.mirakc.yml build
+$ cp data/mirakc/sample.config.yml data/mirakc/config.yml # 設定ファイルのサンプルをコピーし、利用環境に合わせて編集
+$ docker-compose -f docker-compose.mirakc.yml up -d
+----
+
+== Dockerイメージの説明
+
+[cols="1a,1a,1a",options="header"] 
+|===
+|Dockerイメージ
+|概要
+|外部からのアクセス
+
+|68fpjc/mirakurun
+|https://hub.docker.com/r/chinachu/mirakurun[公式Dockerイメージ] に下記変更を行ったもの
+
+* BonDriverProxyクライアントを追加
+* recbondを追加
+* socatを追加
+* pcscdを削除
+|`http://ホスト:40772/`
+
+|68fpjc/mirakc
+|https://hub.docker.com/r/masnagam/mirakc[公式Dockerイメージ] に下記変更を行ったもの
+
+* BonDriverProxyクライアントを追加
+* recbondを追加
+|`http://ホスト:40772/`
+
+|68fpjc/bondriverproxy
+|BonDriverProxy_Linuxサーバ
+|`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPT-??.so`
+
+※ 上記`??` は `00` ～ `99` 。 `link:data/bon/[data/bon]` ディレクトリ内のファイルを参照のこと
+|===
+
+
+* https://github.com/68fpjc/docker-b25[docker-b25] と併用することを想定しています。 *過去のリリースにあったpcscdイメージは削除しました。*
+* ホスト側で下記がインストール・実行されている必要があります。
+** https://github.com/nns779/px4_drv[px4_drv]
+** `link:docker-compose.yml[docker-compose.yml]` で、ホスト側の `/dev/px4video0` ～ `/dev/px4video7` をコンテナに渡しています。
+*** `/dev/px4video4` ～ `/dev/px4video7` はコメントアウトしてあるので、PX-W3U4等の4チャンネルチューナでも動くかもしれません。動かないかもしれません。
+*** `devices` の指定を `/dev/px4video0:/dev/pt3video0` → `/dev/pt3video0:/dev/pt3video0` のように書き換えれば、ひょっとしたら https://github.com/m-tsudo/pt3[PT3ドライバ] でも動くかもしれません。動かないかもしれません。
+* `/dev/px4video0` と `/dev/px4video1` がBS・CSチューナであると仮定し、LNB電源をONにしています（ちゃんと動いているかどうかは未確認）。必要に応じて、Composeファイルで定義されている環境変数 `BONDRIVERPROXY_USELNB` を変更・コメントアウトしてください。
+
+以上
