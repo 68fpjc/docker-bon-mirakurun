@@ -30,8 +30,8 @@ services:
       context: ./dockerfiles/mirakurun
       target: mirakurun
       args:
-        - BASE=chinachu/mirakurun:3.2.0
-    image: 68fpjc/mirakurun:3.2.0
+        - BASE=chinachu/mirakurun:3.3.0
+    image: 68fpjc/mirakurun:3.3.0
     depends_on:
       - bon
     cap_add:
