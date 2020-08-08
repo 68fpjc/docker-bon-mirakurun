@@ -1,3 +1,9 @@
+#!/bin/bash
+pushd "$(dirname $0)" >> /dev/null
+
+TMPFILE="$(mktemp)"
+
+cat << 'EOF' > "${TMPFILE}"
 ARG BASE
 
 # BonDriverProxy_Linux client
@@ -39,6 +45,10 @@ RUN : \
     && rm -rf /tmp/* \
     && :
 
+EOF
+
+cat "${TMPFILE}" > dockerfiles/mirakurun/Dockerfile
+cat << 'EOF' >> dockerfiles/mirakurun/Dockerfile
 # final image
 FROM ${BASE} as mirakurun
 RUN : \
@@ -64,3 +74,19 @@ COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 CMD []
 EXPOSE 40772 9229
+EOF
+
+cat "${TMPFILE}" > dockerfiles/mirakc/Dockerfile
+cat << 'EOF' >> dockerfiles/mirakc/Dockerfile
+# final image
+FROM ${BASE} as mirakc
+COPY --from=bon-build /dist/BonDriver_Proxy.so /usr/local/lib/
+COPY --from=bon-build /dist/BonDriver_Proxy.so.conf /var/lib/BonDriverProxy_Linux/config.in/
+COPY --from=bon-build /dist/recbond /usr/local/bin/
+COPY entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
+CMD []
+EXPOSE 40772
+EOF
+
+popd >> /dev/null
