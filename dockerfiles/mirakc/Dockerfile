@@ -6,6 +6,7 @@ RUN : \
     && set -x \
     && apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates curl make g++ autoconf automake \
+    && update-ca-certificates --fresh \
     \
     && mkdir -p /dist/ \
     \
