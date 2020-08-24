@@ -32,14 +32,14 @@ services:
       context: ./dockerfiles/mirakc
       target: mirakc
       args:
-        - BASE=masnagam/mirakc:0.13.1-debian
-    image: 68fpjc/mirakc:0.13.1
+        - BASE=mirakc/mirakc:0.14.0-debian
+    image: 68fpjc/mirakc:0.14.0
     depends_on:
       - bon
     environment:
       TZ: Asia/Tokyo
       # Log level of `mirakc`.
-      # See README.md in masnagam/mirakc.
+      # See README.md in mirakc/mirakc.
       RUST_LOG: info
       # Output info-level log messages from child processes like
       # `mirakc-arib collect-eits` for debugging purpose.

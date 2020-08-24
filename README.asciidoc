@@ -1,6 +1,6 @@
 = docker-bon-mirakurun
 
-https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux[BonDriverProxy_Linux] + https://github.com/dogeel/recbond[recbond] + https://github.com/Chinachu/Mirakurun[Mirakurun] （or https://github.com/masnagam/mirakc[mirakc] ）のDockerイメージです。TVチューナは http://www.plex-net.co.jp/product/px-q3u4/[PLEX PX-Q3U4] を想定しています。
+https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux[BonDriverProxy_Linux] + https://github.com/dogeel/recbond[recbond] + https://github.com/Chinachu/Mirakurun[Mirakurun] （or https://github.com/mirakc/mirakc[mirakc] ）のDockerイメージです。TVチューナは http://www.plex-net.co.jp/product/px-q3u4/[PLEX PX-Q3U4] を想定しています。
 
 録画・視聴アプリは含まれていません。EPGStation、TVTest、EDCB等、お好きなものをどうぞ。
 
@@ -63,7 +63,7 @@ $ docker-compose -f docker-compose.mirakc.yml up -d
 |`http://ホスト:40772/`
 
 |68fpjc/mirakc
-|https://hub.docker.com/r/masnagam/mirakc[公式Dockerイメージ] に下記変更を行ったもの
+|https://hub.docker.com/r/mirakc/mirakc[公式Dockerイメージ] に下記変更を行ったもの
 
 * BonDriverProxyクライアントを追加
 * recbondを追加
