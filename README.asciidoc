@@ -1,4 +1,11 @@
-= docker-bon-mirakurun
+:doctitle: docker-bon-mirakurun
+:author: 68fpjc
+:sectnums:
+:toc:
+
+= {doctitle}
+
+== 概要
 
 https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux[BonDriverProxy_Linux] + https://github.com/dogeel/recbond[recbond] + https://github.com/Chinachu/Mirakurun[Mirakurun] （or https://github.com/mirakc/mirakc[mirakc] ）のDockerイメージです。TVチューナは http://www.plex-net.co.jp/product/px-q3u4/[PLEX PX-Q3U4] を想定しています。
 
@@ -73,7 +80,7 @@ $ docker-compose -f docker-compose.mirakc.yml up -d
 |BonDriverProxy_Linuxサーバ
 |`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPT-??.so`
 
-※ 上記`??` は `00` ～ `99` 。 `link:data/bon/[data/bon]` ディレクトリ内のファイルを参照のこと
+※ 上記 `??` は `00` ～ `99` 。 `link:data/bon/[data/bon]` ディレクトリ内のファイルを参照のこと
 |===
 
 
