@@ -6,14 +6,13 @@ RUN : \
     && set -x \
     && apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates curl make g++ autoconf automake \
-    && update-ca-certificates --fresh \
     \
     && mkdir -p /dist/ \
     \
     # BonDriverProxy_Linux client
     && mkdir -p /build/ \
     && cd /build/ \
-    && curl -L https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux/tarball/master \
+    && curl --insecure -L https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux/tarball/master \
        | tar -zx --strip-components=1 \
     && make client \
     && chmod 644 BonDriver_Proxy.so \
@@ -23,7 +22,7 @@ RUN : \
     # recbond
     && mkdir -p recbond/ \
     && cd recbond/ \
-    && curl -L https://github.com/dogeel/recbond/tarball/master \
+    && curl --insecure -L https://github.com/dogeel/recbond/tarball/master \
        | tar -zx --strip-components=1 \
     && ./autogen.sh \
     && ./configure --prefix=/usr/local \
