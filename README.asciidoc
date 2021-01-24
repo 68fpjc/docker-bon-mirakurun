@@ -15,9 +15,18 @@ https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux[BonDriverProxy_Linux] + ht
 
 下記で動作確認しています。
 
-* Ubuntu 18.04.1 LTS
-* Docker version 19.03.6, build 369ce74a3c
-* docker-compose version 1.24.1, build 4667896b
+* Raspbian GNU/Linux 10 (buster)
+* Docker version 20.10.1, build 831ebea
+* docker-compose version 1.26.2, build eefe0d31
+
+== 準備
+
+=== Dockerイメージのビルド
+
+[source,sh]
+----
+$ ./build.sh
+----
 
 == 使い方
 
@@ -25,7 +34,6 @@ https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux[BonDriverProxy_Linux] + ht
 
 [source,sh]
 ----
-$ docker-compose build
 $ docker-compose up -d
 ----
 
@@ -47,7 +55,6 @@ $ docker-compose restart
 
 [source,sh]
 ----
-$ docker-compose -f docker-compose.mirakc.yml build
 $ cp data/mirakc/sample.config.yml data/mirakc/config.yml # 設定ファイルのサンプルをコピーし、利用環境に合わせて編集
 $ docker-compose -f docker-compose.mirakc.yml up -d
 ----
