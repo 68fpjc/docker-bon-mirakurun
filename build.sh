@@ -17,8 +17,8 @@ ${BUILDCMD} "$(dirname $0)"/dockerfiles/mirakurun/ --tag ${FINAL_IMAGE} \
 && docker image tag ${FINAL_IMAGE} ${REPO}
 
 REPO=68fpjc/mirakc
-FINAL_IMAGE=${REPO}:0.16.0
-BASE=mirakc/mirakc:0.16.0-debian
+FINAL_IMAGE=${REPO}:0.16.1
+BASE=mirakc/mirakc:0.16.1-debian
 
 ${BUILDCMD} "$(dirname $0)"/dockerfiles/mirakc/ --tag ${FINAL_IMAGE} \
 --build-arg BASE=${BASE} \
