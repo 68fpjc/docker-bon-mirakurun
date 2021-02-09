@@ -6,143 +6,155 @@ server:
     - http: '0.0.0.0:40772'
 
 channels:
-  # BS朝日
+  # BS01/TS0
   - name: ch-000
     type: BS
     channel: '0'
 
-  # BS-TBS
+  # BS01/TS1
   - name: ch-001
     type: BS
     channel: '1'
 
-  # WOWOWプライム
+  # BS03/TS0
   - name: ch-002
     type: BS
     channel: '2'
 
-  # BSテレ東
+  # BS01/TS2
   - name: ch-003
     type: BS
     channel: '3'
 
-  # WOWOWライブ
+  # BS05/TS0
   - name: ch-004
     type: BS
     channel: '4'
 
-  # WOWOWシネマ
+  # BS05/TS1
   - name: ch-005
     type: BS
     channel: '5'
 
-  # スターチャンネル2/3
+  # BS15/TS1
   - name: ch-006
     type: BS
     channel: '6'
 
-  # BSアニマックス
+  # BS13/TS2
   - name: ch-007
     type: BS
     channel: '7'
 
-  # ディズニーチャンネル
+  # BS03/TS2
   - name: ch-008
     type: BS
     channel: '8'
 
-  # BS11
+  # BS09/TS0
   - name: ch-009
     type: BS
     channel: '9'
 
-  # スターチャンネル
+  # BS09/TS1
   - name: ch-010
     type: BS
     channel: '10'
 
-  # BS12トゥエルビ
+  # BS09/TS2
   - name: ch-011
     type: BS
     channel: '11'
 
-  # BSスカパー！
+  # BS11/TS0
   - name: ch-012
     type: BS
     channel: '12'
 
-  # 放送大学
+  # BS11/TS1
   - name: ch-013
     type: BS
     channel: '13'
 
-  # 空き
+  # BS11/TS2
   - name: ch-014
     type: BS
     channel: '14'
     disabled: true
 
-  # BS日テレ
+  # BS13/TS0
   - name: ch-015
     type: BS
     channel: '15'
 
-  # BSフジ
+  # BS13/TS1
   - name: ch-016
     type: BS
     channel: '16'
 
-  # NHK-BS1
+  # BS15/TS0
   - name: ch-017
     type: BS
     channel: '17'
 
-  # NHK-BSプレミアム
+  # BS03/TS1
   - name: ch-018
     type: BS
     channel: '18'
 
-  # グリーンチャンネル
+  # BS17/TS2
+  - name: ch-019
+    type: BS
+    channel: '19'
+    disabled: true
+
+  # BS17/TS1
+  - name: ch-020
+    type: BS
+    channel: '20'
+    disabled: true
+
+  # BS19/TS0
   - name: ch-021
     type: BS
     channel: '21'
 
-  # J Sports 1
+  # BS19/TS1
   - name: ch-022
     type: BS
     channel: '22'
 
-  # J Sports 2
+  # BS19/TS2
   - name: ch-023
     type: BS
     channel: '23'
 
-  # シネフィルWOWOW
+  # BS21/TS0
   - name: ch-024
     type: BS
     channel: '24'
 
-  # J Sports 3
+  # BS21/TS1
   - name: ch-025
     type: BS
     channel: '25'
 
-  # J Sports 4
+  # BS21/TS2
   - name: ch-026
     type: BS
     channel: '26'
 
-  # BS釣りビジョン
+  # BS23/TS0
   - name: ch-027
     type: BS
     channel: '27'
 
-  # BS日本映画専門チャンネル
+  # BS23/TS1
   - name: ch-028
     type: BS
     channel: '28'
 
-  # 空き
+  # BS23/TS2
   - name: ch-029
     type: BS
     channel: '29'
