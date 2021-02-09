@@ -133,7 +133,7 @@
   type: BS
   channel: '24'
 
-# BS21/TS1
+# BS19/TS3
 - name: ch-025
   type: BS
   channel: '25'
