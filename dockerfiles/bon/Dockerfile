@@ -11,7 +11,7 @@ RUN : \
        | tar -zx --strip-components=1 \
     && BUILD=DEBUG make server driver \
     && install -m 755 BonDriverProxy /usr/local/bin/ \
-    && install -m 644 *.so BonDriver_LinuxPT.conf BonDriver_DVB.conf BonDriver_Splitter.conf /usr/local/lib/ \
+    && install -m 644 *.so BonDriver_DVB.conf BonDriver_Splitter.conf /usr/local/lib/ \
     && mkdir -p /var/lib/BonDriverProxy_Linux/ \
     && cd / \
     && rm -r /build/ \
@@ -24,6 +24,7 @@ RUN : \
     && rm -rf /tmp/* \
     && :
 COPY entrypoint.sh /
+COPY BonDriver_LinuxPT.conf /usr/local/lib/
 ENTRYPOINT ["/entrypoint.sh"]
 CMD []
 EXPOSE 1192
