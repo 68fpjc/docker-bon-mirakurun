@@ -3,7 +3,7 @@ services:
   bon:
     build:
       context: ./dockerfiles/bon
-    image: 68fpjc/bondriverproxy
+    image: 68fpjc/bondriverproxy:2021-02-11
     environment:
       TZ: Asia/Tokyo
       BONDRIVERPROXY_USELNB: 0,1
