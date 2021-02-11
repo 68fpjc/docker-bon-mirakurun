@@ -15,9 +15,9 @@ https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux[BonDriverProxy_Linux] + ht
 
 下記で動作確認しています。
 
-* Ubuntu 18.04.1 LTS
-* Docker version 19.03.6, build 369ce74a3c
-* docker-compose version 1.24.1, build 4667896b
+* Raspbian GNU/Linux 10 (buster)
+* Docker version 20.10.1, build 831ebea
+* docker-compose version 1.26.2, build eefe0d31
 
 == 使い方
 
