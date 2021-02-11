@@ -1,6 +1,8 @@
 version: '3.4'
 services:
   bon:
+    build:
+      context: ./dockerfiles/bon
     image: 68fpjc/bondriverproxy
     environment:
       TZ: Asia/Tokyo
@@ -26,7 +28,12 @@ services:
     restart: unless-stopped
 
   mirakc:
-    image: 68fpjc/mirakc
+    build:
+      context: ./dockerfiles/mirakc
+      target: mirakc
+      args:
+        - BASE=mirakc/mirakc:0.16.1-debian
+    image: 68fpjc/mirakc:0.16.1
     depends_on:
       - bon
     environment:

@@ -1,6 +1,8 @@
 version: '3.4'
 services:
   bon:
+    build:
+      context: ./dockerfiles/bon
     image: 68fpjc/bondriverproxy
     environment:
       TZ: Asia/Tokyo
@@ -24,7 +26,12 @@ services:
     restart: unless-stopped
 
   mirakurun:
-    image: 68fpjc/mirakurun
+    build:
+      context: ./dockerfiles/mirakurun
+      target: mirakurun
+      args:
+        - BASE=chinachu/mirakurun:3.5.0
+    image: 68fpjc/mirakurun:3.5.0
     depends_on:
       - bon
     cap_add:
