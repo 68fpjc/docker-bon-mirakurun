@@ -23,8 +23,8 @@ RUN : \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* \
     && :
-COPY entrypoint.sh /
 COPY BonDriver_LinuxPT.conf /usr/local/lib/
+COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 CMD []
 EXPOSE 1192
