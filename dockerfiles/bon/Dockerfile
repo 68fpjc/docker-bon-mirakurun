@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:buster-slim
 RUN : \
     && set -x \
     && apt-get update \
@@ -7,7 +7,7 @@ RUN : \
     && apt-get install -y --no-install-recommends ca-certificates curl make g++ \
     && mkdir -p /build/ \
     && cd /build/ \
-    && curl -L https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux/tarball/master \
+    && curl --insecure -L https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux/tarball/master \
        | tar -zx --strip-components=1 \
     && BUILD=DEBUG make server driver \
     && install -m 755 BonDriverProxy /usr/local/bin/ \
