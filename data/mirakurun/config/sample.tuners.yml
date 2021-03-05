@@ -58,3 +58,31 @@
   command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-07.so B<channel> - -
   decoder: exec-socat
   isDisabled: true
+
+- name: DVB-00
+  types:
+    - GR
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-08.so B<channel> - -
+  decoder: exec-socat
+  isDisabled: true
+
+- name: DVB-01
+  types:
+    - GR
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-09.so B<channel> - -
+  decoder: exec-socat
+  isDisabled: true
+
+- name: DVB-02
+  types:
+    - GR
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-10.so B<channel> - -
+  decoder: exec-socat
+  isDisabled: true
+
+- name: DVB-03
+  types:
+    - GR
+  command: recbond --driver /var/lib/BonDriverProxy_Linux/BonDriver_Proxy-11.so B<channel> - -
+  decoder: exec-socat
+  isDisabled: true

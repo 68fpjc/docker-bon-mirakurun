@@ -3,19 +3,21 @@ services:
   bon:
     build:
       context: ./dockerfiles/bon
-    image: 68fpjc/bondriverproxy:2021-02-24
+    image: 68fpjc/bondriverproxy:2021-03-02
     environment:
       TZ: Asia/Tokyo
-      BONDRIVERPROXY_USELNB: 0,1
+    volumes:
+      - ./data/bon/driver/:/var/lib/BonDriverProxy_Linux/config.in/:ro
     devices:
-      - /dev/px4video0:/dev/pt3video0
-      - /dev/px4video1:/dev/pt3video1
-      - /dev/px4video2:/dev/pt3video2
-      - /dev/px4video3:/dev/pt3video3
-      # - /dev/px4video4:/dev/pt3video4
-      # - /dev/px4video5:/dev/pt3video5
-      # - /dev/px4video6:/dev/pt3video6
-      # - /dev/px4video7:/dev/pt3video7
+      - /dev/px4video0:/dev/px4video0
+      - /dev/px4video1:/dev/px4video1
+      - /dev/px4video2:/dev/px4video2
+      - /dev/px4video3:/dev/px4video3
+      # - /dev/px4video4:/dev/px4video4
+      # - /dev/px4video5:/dev/px4video5
+      # - /dev/px4video6:/dev/px4video6
+      # - /dev/px4video7:/dev/px4video7
+      # - /dev/dvb:/dev/dvb
     logging:
       driver: json-file
       options:
@@ -43,12 +45,45 @@ services:
       - ./data/mirakurun/opt/:/opt/
       - ./data/mirakurun/config/:/app-config/
       - ./data/mirakurun/data/:/app-data/
-      - ./data/bon/:/var/lib/BonDriverProxy_Linux/config.in/:ro
+      - ./data/bon/client/:/var/lib/BonDriverProxy_Linux/config.in/:ro
       - ./data/mirakurun/config/sample.tuners.yml:/app/config/tuners.yml:ro
       - ./data/mirakurun/config/sample.channels.yml:/app/config/channels.yml:ro
     ports:
       - "40772:40772"
       - "9229:9229"
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '5'
+    restart: unless-stopped
+
+  mirakc:
+    build:
+      context: ./dockerfiles/mirakc
+      target: mirakc
+      args:
+        - BASE=mirakc/mirakc:0.16.1-debian
+    image: 68fpjc/mirakc:0.16.1
+    depends_on:
+      - bon
+    environment:
+      TZ: Asia/Tokyo
+      # Log level of `mirakc`.
+      # See README.md in mirakc/mirakc.
+      RUST_LOG: info
+      # Output info-level log messages from child processes like
+      # `mirakc-arib collect-eits` for debugging purpose.
+      #
+      # Normally, you don't need to define the following environment variables.
+      MIRAKC_DEBUG_CHILD_PROCESS: ''
+      MIRAKC_ARIG_LOG: info
+    volumes:
+      - ./data/mirakc/config.yml:/etc/mirakc/config.yml:ro
+      - ./data/mirakc/epg/:/var/lib/mirakc/epg/
+      - ./data/bon/client/:/var/lib/BonDriverProxy_Linux/config.in/:ro
+    ports:
+      - "40772:40772"
     logging:
       driver: json-file
       options:

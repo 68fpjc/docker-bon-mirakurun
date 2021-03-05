@@ -49,7 +49,7 @@ RUN : \
     && apt-get install -y --no-install-recommends socat \
     \
     # disable pcscd
-    && apt-get remove -y pcscd \
+    && apt-get purge -y pcscd \
     \
     # cleanup
     && apt-get clean \

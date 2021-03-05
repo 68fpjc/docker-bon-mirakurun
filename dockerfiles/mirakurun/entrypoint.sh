@@ -1,11 +1,12 @@
 #!/bin/bash
 
-cd /var/lib/BonDriverProxy_Linux/
-for BONCONF in config.in/*.so.conf ; do
-  cp ${BONCONF} .
-  BONCLIENT=${BONCONF##*/}
-  BONCLIENT=${BONCLIENT%.*}
-  cp /usr/local/lib/BonDriver_Proxy.so ${BONCLIENT}
+LIBDIR=/var/lib/BonDriverProxy_Linux/
+mkdir -p ${LIBDIR}config.in/
+cp ${LIBDIR}config.in/*.conf ${LIBDIR} 2> /dev/null
+rm ${LIBDIR}*.so 2> /dev/null
+for I in $(seq 0 99) ; do
+  II=$(printf "%02d" ${I})
+  cp /usr/local/lib/BonDriver_Proxy.so ${LIBDIR}BonDriver_Proxy-${II}.so
 done
 
 [ -e /opt/bin/ ] || mkdir -p /opt/bin/
