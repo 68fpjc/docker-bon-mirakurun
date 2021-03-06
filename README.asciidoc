@@ -21,36 +21,69 @@ https://github.com/u-n-k-n-o-w-n/BonDriverProxy_Linux[BonDriverProxy_Linux] + ht
 
 == 使い方
 
-=== 通常
+* PX-Q3U4を使用する場合、ホスト側で https://github.com/nns779/px4_drv[px4_drv] がインストール・実行されている必要があります。
+* https://github.com/68fpjc/docker-b25[docker-b25] と併用することを想定しています。
+
+=== 初期設定その1（Dockerイメージのビルド）
 
 [source,sh]
 ----
 $ docker-compose build
-$ docker-compose up -d
 ----
 
-下記ファイルが自動生成されるので、利用環境に合わせて編集
-
-* `data/mirakurun/config/server.yml`
-* `data/mirakurun/config/tuners.yml`
-* `data/mirakurun/config/channels.yml`
-* `data/mirakurun/opt/exec-socat`
-
-編集後、コンテナを再起動
+=== 初期設定その2（設定ファイルの生成）
 
 [source,sh]
 ----
-$ docker-compose restart
+$ ./init.sh 192.168.0.10:40773 # IPアドレスはdocker-b25が動作しているホストを指定すること
 ----
 
-=== Mirakurunの代わりにmirakcを使う場合
+=== 起動（BonDriverProxy_Linux + Mirakurun）
 
 [source,sh]
 ----
-$ docker-compose -f docker-compose.mirakc.yml build
-$ cp data/mirakc/sample.config.yml data/mirakc/config.yml # 設定ファイルのサンプルをコピーし、利用環境に合わせて編集
-$ docker-compose -f docker-compose.mirakc.yml up -d
+$ docker-compose up -d bon mirakurun
 ----
+
+=== 起動（BonDriverProxy_Linux + mirakc）
+
+[source,sh]
+----
+$ docker-compose up -d bon mirakc
+----
+
+=== 起動（BonDriverProxy_Linuxのみ）
+
+[source,sh]
+----
+$ docker-compose up -d bon
+----
+
+== 構成
+
+----
+bonコンテナ                                            | mirakrun / mirakcコンテナ
+デバイス                   BonDriver                   | BonDriver                  録画コマンド
+-------------------------------------------------------+-----------------------------------------------
+/dev/px4video0         <-  BonDriver_LinuxPT-00.so  <- | BonDriver_Proxy-00.so  <-  recbond (BS/CS) ※2
+/dev/px4video1         <-  BonDriver_LinuxPT-01.so  <- | BonDriver_Proxy-01.so  <-  recbond (BS/CS) ※2
+/dev/px4video2         <-  BonDriver_LinuxPT-02.so  <- | BonDriver_Proxy-02.so  <-  recbond (GR)    ※2
+/dev/px4video3         <-  BonDriver_LinuxPT-03.so  <- | BonDriver_Proxy-03.so  <-  recbond (GR)    ※2
+/dev/px4video4    ※1  <-  BonDriver_LinuxPT-04.so  <- | BonDriver_Proxy-04.so  <-  recbond (BS/CS) ※2
+/dev/px4video5    ※1  <-  BonDriver_LinuxPT-05.so  <- | BonDriver_Proxy-05.so  <-  recbond (BS/CS) ※2
+/dev/px4video6    ※1  <-  BonDriver_LinuxPT-06.so  <- | BonDriver_Proxy-06.so  <-  recbond (GR)    ※2
+/dev/px4video7    ※1  <-  BonDriver_LinuxPT-07.so  <- | BonDriver_Proxy-07.so  <-  recbond (GR)    ※2
+/dev/dvb/adapter0 ※1  <-  BonDriver_DVB-00.so      <- | BonDriver_Proxy-08.so  <-  recbond (GR)    ※2
+/dev/dvb/adapter1 ※1  <-  BonDriver_DVB-01.so      <- | BonDriver_Proxy-09.so  <-  recbond (GR)    ※2
+/dev/dvb/adapter2 ※1  <-  BonDriver_DVB-02.so      <- | BonDriver_Proxy-10.so  <-  recbond (GR)    ※2
+/dev/dvb/adapter3 ※1  <-  BonDriver_DVB-03.so      <- | BonDriver_Proxy-11.so  <-  recbond (GR)    ※2
+
+※1 デフォルトのdocker-compose.ymlでは無効化されている
+※2 初期tuners.yml / config.ymlでは無効化されている
+----
+
+* docker-compose.yml / tuners.yml / config.ymlを適切に変更することにより、 http://www.plex-net.co.jp/product/px-q1ud/[PX-Q1UD]  も使えます。 http://www.plex-net.co.jp/product/px-w3u4/[PX-W3U4] / http://www.plex-net.co.jp/product/px-s1udv2/[PX-S1UD V2.0] も使えるかもしれません。使えないかもしれません。
+* 地デジのチャンネルはすべて無効化してあるので、適切に有効化してください。東京のチャンネルにはコメントを入れてあるので参考にしてください。
 
 == Dockerイメージの説明
 
@@ -64,6 +97,7 @@ $ docker-compose -f docker-compose.mirakc.yml up -d
 |https://hub.docker.com/r/chinachu/mirakurun[公式Dockerイメージ] に下記変更を行ったもの
 
 * BonDriverProxyクライアントを追加
+* https://github.com/nns779/BonDriver_LinuxPTX[BonDriver_LinuxPTX] を追加（未使用）
 * recbondを追加
 * socatを追加
 * pcscdを削除
@@ -73,6 +107,7 @@ $ docker-compose -f docker-compose.mirakc.yml up -d
 |https://hub.docker.com/r/mirakc/mirakc[公式Dockerイメージ] に下記変更を行ったもの
 
 * BonDriverProxyクライアントを追加
+* https://github.com/nns779/BonDriver_LinuxPTX[BonDriver_LinuxPTX] を追加（未使用）
 * recbondを追加
 |`http://ホスト:40772/`
 
@@ -80,16 +115,11 @@ $ docker-compose -f docker-compose.mirakc.yml up -d
 |BonDriverProxy_Linuxサーバ
 |`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPT-??.so`
 
-※ 上記 `??` は `00` ～ `99` 。 `link:data/bon/[data/bon]` ディレクトリ内のファイルを参照のこと
+※ 上記 `??` は `00` ～ `19`
 |===
 
+== 補足
 
-* https://github.com/68fpjc/docker-b25[docker-b25] と併用することを想定しています。 *過去のリリースにあったpcscdイメージは削除しました。*
-* ホスト側で下記がインストール・実行されている必要があります。
-** https://github.com/nns779/px4_drv[px4_drv]
-** `link:docker-compose.yml[docker-compose.yml]` で、ホスト側の `/dev/px4video0` ～ `/dev/px4video7` をコンテナに渡しています。
-*** `/dev/px4video4` ～ `/dev/px4video7` はコメントアウトしてあるので、PX-W3U4等の4チャンネルチューナでも動くかもしれません。動かないかもしれません。
-*** `devices` の指定を `/dev/px4video0:/dev/pt3video0` → `/dev/pt3video0:/dev/pt3video0` のように書き換えれば、ひょっとしたら https://github.com/m-tsudo/pt3[PT3ドライバ] でも動くかもしれません。動かないかもしれません。
-* `/dev/px4video0` と `/dev/px4video1` がBS・CSチューナであると仮定し、LNB電源をONにしています（ちゃんと動いているかどうかは未確認）。必要に応じて、Composeファイルで定義されている環境変数 `BONDRIVERPROXY_USELNB` を変更・コメントアウトしてください。
+* BonDriverProxy_LinuxPT-??.conf / BonDriverProxy_DVB-??.confのチャンネル設定は、BonDriver_LinuxPTXに準拠したものになっています。
 
 以上
