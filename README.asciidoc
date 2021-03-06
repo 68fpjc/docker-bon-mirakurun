@@ -111,9 +111,9 @@ bonコンテナ                                            | mirakrun / mirakc�
 
 |68fpjc/bondriverproxy
 |BonDriverProxy_Linux + https://github.com/nns779/BonDriver_LinuxPTX[BonDriver_LinuxPTX]
-|`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPT-??.so
-BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_DVB-??.so
-BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPTX-??.so`
+|`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPT-??.so`
+`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_DVB-??.so`
+`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPTX-??.so`
 
 * 上記 `??` は `00` ～ `19` 。ただし、*.conf / *.iniが不足しているため、デフォルトではすべて使えるわけではない
 |===
