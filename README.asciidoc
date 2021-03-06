@@ -97,7 +97,6 @@ bonコンテナ                                            | mirakrun / mirakc�
 |https://hub.docker.com/r/chinachu/mirakurun[公式Dockerイメージ] に下記変更を行ったもの
 
 * BonDriverProxyクライアントを追加
-* https://github.com/nns779/BonDriver_LinuxPTX[BonDriver_LinuxPTX] を追加（未使用）
 * recbondを追加
 * socatを追加
 * pcscdを削除
@@ -107,15 +106,16 @@ bonコンテナ                                            | mirakrun / mirakc�
 |https://hub.docker.com/r/mirakc/mirakc[公式Dockerイメージ] に下記変更を行ったもの
 
 * BonDriverProxyクライアントを追加
-* https://github.com/nns779/BonDriver_LinuxPTX[BonDriver_LinuxPTX] を追加（未使用）
 * recbondを追加
 |`http://ホスト:40772/`
 
 |68fpjc/bondriverproxy
-|BonDriverProxy_Linuxサーバ
-|`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPT-??.so`
+|BonDriverProxy_Linux + https://github.com/nns779/BonDriver_LinuxPTX[BonDriver_LinuxPTX]
+|`BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPT-??.so
+BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_DVB-??.so
+BONDRIVER=/var/lib/BonDriverProxy_Linux/BonDriver_LinuxPTX-??.so`
 
-※ 上記 `??` は `00` ～ `19`
+* 上記 `??` は `00` ～ `19` 。ただし、*.conf / *.iniが不足しているため、デフォルトではすべて使えるわけではない
 |===
 
 == 補足
