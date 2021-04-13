@@ -71,53 +71,53 @@ channels:
     type: BS
     channel: '12'
 
+  # BS11/TS2
+  - name: BS11/TS2
+    type: BS
+    channel: '13'
+
   # BS13/TS0
   - name: BS13/TS0
     type: BS
-    channel: '13'
+    channel: '14'
 
   # BS13/TS1
   - name: BS13/TS1
     type: BS
-    channel: '14'
+    channel: '15'
 
   # BS13/TS2
   - name: BS13/TS2
     type: BS
-    channel: '15'
+    channel: '16'
 
   # BS15/TS0
   - name: BS15/TS0
     type: BS
-    channel: '16'
+    channel: '17'
 
   # BS15/TS1
   - name: BS15/TS1
     type: BS
-    channel: '17'
+    channel: '18'
 
   # BS19/TS0
   - name: BS19/TS0
     type: BS
-    channel: '18'
+    channel: '19'
 
   # BS19/TS1
   - name: BS19/TS1
     type: BS
-    channel: '19'
+    channel: '20'
 
   # BS19/TS2
   - name: BS19/TS2
     type: BS
-    channel: '20'
+    channel: '21'
 
   # BS19/TS3
   - name: BS19/TS3
-    type: BS
-    channel: '21'
-
-  # BS21/TS0
-  - name: BS21/TS0
     type: BS
     channel: '22'
 
@@ -125,82 +125,71 @@ channels:
   - name: BS21/TS1
     type: BS
     channel: '23'
-    disabled: true
 
   # BS21/TS2
   - name: BS21/TS2
     type: BS
     channel: '24'
 
-  # BS23/TS0
-  - name: BS23/TS0
-    type: BS
-    channel: '25'
-
-  # BS23/TS1
-  - name: BS23/TS1
-    type: BS
-    channel: '26'
-
   # ND02/TS0
   - name: ND02/TS0
     type: CS
-    channel: '27'
+    channel: '25'
 
   # ND04/TS0
   - name: ND04/TS0
     type: CS
-    channel: '28'
+    channel: '26'
 
   # ND06/TS0
   - name: ND06/TS0
     type: CS
-    channel: '29'
+    channel: '27'
 
   # ND08/TS0
   - name: ND08/TS0
     type: CS
-    channel: '30'
+    channel: '28'
 
   # ND10/TS0
   - name: ND10/TS0
     type: CS
-    channel: '31'
+    channel: '29'
 
   # ND12/TS0
   - name: ND12/TS0
     type: CS
-    channel: '32'
+    channel: '30'
 
   # ND14/TS0
   - name: ND14/TS0
     type: CS
-    channel: '33'
+    channel: '31'
 
   # ND16/TS0
   - name: ND16/TS0
     type: CS
-    channel: '34'
+    channel: '32'
 
   # ND18/TS0
   - name: ND18/TS0
     type: CS
-    channel: '35'
+    channel: '33'
 
   # ND20/TS0
   - name: ND20/TS0
     type: CS
-    channel: '36'
+    channel: '34'
 
   # ND22/TS0
   - name: ND22/TS0
     type: CS
-    channel: '37'
+    channel: '35'
 
   # ND24/TS0
   - name: ND24/TS0
     type: CS
-    channel: '38'
+    channel: '36'
 
   # C13ch
   - name: C13ch
