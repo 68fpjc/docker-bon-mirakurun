@@ -63,8 +63,8 @@ services:
       context: ./dockerfiles/mirakc
       target: mirakc
       args:
-        - BASE=mirakc/mirakc:0.17.1-debian
-    image: 68fpjc/mirakc:0.17.1
+        - BASE=mirakc/mirakc:0.17.2-debian
+    image: 68fpjc/mirakc:0.17.2
     depends_on:
       - bon
     environment:
