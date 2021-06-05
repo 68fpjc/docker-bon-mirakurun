@@ -31,8 +31,8 @@ channels:
     type: BS
     channel: '4'
 
-  # BS03/TS2
-  - name: BS03/TS2
+  # BS23/TS0
+  - name: BS23/TS0
     type: BS
     channel: '5'
 
