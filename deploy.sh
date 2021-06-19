@@ -3,7 +3,7 @@
 for IMAGE in \
 68fpjc/bondriverproxy:2021-03-02 \
 68fpjc/mirakurun:3.5.0 \
-68fpjc/mirakc:0.17.4 \
+68fpjc/mirakc:0.18.0 \
 ; do
   ssh tvtuner docker image inspect ${IMAGE} &> /dev/null
   if [ $? -ne 0 ]; then
