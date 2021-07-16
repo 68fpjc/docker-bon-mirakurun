@@ -17,8 +17,8 @@ dockerfiles/mirakurun/
 
 # mirakc
 docker buildx build --builder mybuilder --platform linux/arm/v7 --load \
---tag 68fpjc/mirakc:0.18.1-armhf \
---build-arg BASE=mirakc/mirakc:0.18.1-debian \
+--tag 68fpjc/mirakc:1.0.0-armhf \
+--build-arg BASE=mirakc/mirakc:1.0.0-debian \
 dockerfiles/mirakc/
 
 popd
