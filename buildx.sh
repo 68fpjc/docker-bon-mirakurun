@@ -11,8 +11,8 @@ dockerfiles/bon/
 
 # Mirakurun
 docker buildx build --builder mybuilder --platform linux/arm/v7 --load \
---tag 68fpjc/mirakurun:3.7.0-armhf \
---build-arg BASE=chinachu/mirakurun:3.7.0 \
+--tag 68fpjc/mirakurun:3.7.1-armhf \
+--build-arg BASE=chinachu/mirakurun:3.7.1 \
 dockerfiles/mirakurun/
 
 # mirakc
