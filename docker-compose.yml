@@ -82,6 +82,7 @@ services:
       - ./data/mirakc/config.yml:/etc/mirakc/config.yml:ro
       - ./data/mirakc/epg/:/var/lib/mirakc/epg/
       - ./data/bon/client/:/var/lib/BonDriverProxy_Linux/config.in/:ro
+      - ./data/mirakurun/data/logo-data/:/var/lib/mirakc/logos/:ro
     ports:
       - "40772:40772"
     logging:
