@@ -42,14 +42,14 @@ $ ./init.sh 192.168.0.10:40773 # IPアドレスはdocker-b25が動作してい�
 
 [source,sh]
 ----
-$ docker-compose up -d bon mirakurun
+$ docker-compose up -d mirakurun
 ----
 
 === 起動（BonDriverProxy_Linux + mirakc）
 
 [source,sh]
 ----
-$ docker-compose up -d bon mirakc
+$ docker-compose up -d mirakc
 ----
 
 === 起動（BonDriverProxy_Linuxのみ）
@@ -117,9 +117,5 @@ bonコンテナ                                            | mirakrun / mirakc�
 
 * 上記 `??` は `00` ～ `19` 。ただし、*.conf / *.iniが不足しているため、デフォルトではすべて使えるわけではない
 |===
-
-== 補足
-
-* BonDriverProxy_LinuxPT-??.conf / BonDriverProxy_DVB-??.confのチャンネル設定は、BonDriver_LinuxPTXに準拠したものになっています。
 
 以上
