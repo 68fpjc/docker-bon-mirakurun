@@ -3,7 +3,7 @@ services:
   bon:
     build:
       context: ./dockerfiles/bon
-    image: 68fpjc/bondriverproxy:2021-08-28
+    image: 68fpjc/bondriverproxy:2021-08-29
     environment:
       TZ: Asia/Tokyo
     volumes:
@@ -26,6 +26,7 @@ services:
     ports:
       - "1192:1192"
     restart: unless-stopped
+    # command: 64 192512
 
   mirakurun:
     build:

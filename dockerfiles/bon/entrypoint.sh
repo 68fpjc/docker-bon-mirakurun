@@ -11,4 +11,4 @@ for I in $(seq 0 19) ; do
   cp /usr/local/lib/BonDriver_LinuxPTX.so ${LIBDIR}BonDriver_LinuxPTX-${II}.so
 done
 
-exec BonDriverProxy $(hostname -i) 1192 2>&1 | while read LINE ; do echo "$(date -Iseconds): ${LINE}" ; done
+exec BonDriverProxy $(hostname -i) 1192 $@ 2>&1 | while read LINE ; do echo "$(date -Iseconds): ${LINE}" ; done

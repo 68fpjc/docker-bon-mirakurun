@@ -6,7 +6,7 @@ docker buildx create --name mybuilder
 
 # BonDriverProxy_Linux
 docker buildx build --builder mybuilder --platform linux/arm/v7 --load \
---tag 68fpjc/bondriverproxy:2021-08-28-armhf \
+--tag 68fpjc/bondriverproxy:2021-08-29-armhf \
 dockerfiles/bon/ \
 || exit 1
 
